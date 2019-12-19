@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: 97fe0af574d8d704baaebeb1d417e2fe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7664793025628203471
+    second: Planets_Vector_Transparentsd_0
+  - first:
+      213: -5592081778263686753
+    second: Planets_Vector_Transparentsd_1
+  - first:
+      213: 5396713256338498699
+    second: Planets_Vector_Transparentsd_2
+  - first:
+      213: -3359100085557768791
+    second: Planets_Vector_Transparentsd_3
+  - first:
+      213: 4018496547308488813
+    second: Planets_Vector_Transparentsd_4
+  - first:
+      213: -4366272836111768529
+    second: Planets_Vector_Transparentsd_5
+  - first:
+      213: 4386621869334613281
+    second: Planets_Vector_Transparentsd_6
+  - first:
+      213: -7664241831955180374
+    second: Planets_Vector_Transparentsd_7
+  - first:
+      213: 1349134676146967021
+    second: Planets_Vector_Transparentsd_8
+  - first:
+      213: -2137957275117011070
+    second: Planets_Vector_Transparentsd_9
+  - first:
+      213: 200767160170550151
+    second: Planets_Vector_Transparentsd_10
+  - first:
+      213: 2935353444176406230
+    second: Planets_Vector_Transparentsd_11
+  - first:
+      213: -443758849124418088
+    second: Planets_Vector_Transparentsd_12
+  - first:
+      213: 2165078947882558231
+    second: Planets_Vector_Transparentsd_13
+  - first:
+      213: -2204519385514740679
+    second: Planets_Vector_Transparentsd_14
+  - first:
+      213: -2083161047046303497
+    second: Planets_Vector_Transparentsd_15
+  - first:
+      213: -2565736857277755999
+    second: Planets_Vector_Transparentsd_16
+  - first:
+      213: -5173245514744237228
+    second: Planets_Vector_Transparentsd_17
+  - first:
+      213: -8470014663188006159
+    second: Planets_Vector_Transparentsd_18
+  - first:
+      213: -6565795087995130158
+    second: Planets_Vector_Transparentsd_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1556
+        width: 408
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378010c1ada498a45a486d4cfbac5e6c
+      internalID: -7664793025628203471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_1
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1529
+        width: 705
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b159e0517e872e244b5477c135d6a384
+      internalID: -5592081778263686753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_2
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 1579
+        width: 342
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3925129a560ec184a8a7fef610df2381
+      internalID: 5396713256338498699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_3
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1592
+        width: 341
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e7ddb144aa1764ba14f7834eb8d055
+      internalID: -3359100085557768791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_4
+      rect:
+        serializedVersion: 2
+        x: 2487
+        y: 1592
+        width: 342
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7484178368e6134b8ff300bb3fb6de2
+      internalID: 4018496547308488813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_5
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1066
+        width: 389
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01f1cfc1a1a0b8428d6d2440cf0d213
+      internalID: -4366272836111768529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_6
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 1093
+        width: 336
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83ff897a318fcf4bb089392d4d79ae4
+      internalID: 4386621869334613281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_7
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 1092
+        width: 342
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a98c9c1bf2ec67b4cbb605754c76eaf3
+      internalID: -7664241831955180374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_8
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1105
+        width: 341
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06f15bfdfe04184eb005fad9b46d896
+      internalID: 1349134676146967021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_9
+      rect:
+        serializedVersion: 2
+        x: 2462
+        y: 1116
+        width: 375
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1817f1cd884f21845946ab9f75843f32
+      internalID: -2137957275117011070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 609
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6426b83982aa66641989ae50a106e0c2
+      internalID: 200767160170550151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_11
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 593
+        width: 361
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58cc5b995eb74649916f4f51c3ab01d
+      internalID: 2935353444176406230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_12
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 572
+        width: 409
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b74544fdc2d3f478486fba1af5a961
+      internalID: -443758849124418088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_13
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 579
+        width: 400
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d120edd5dd970e44aac37863dc2817cd
+      internalID: 2165078947882558231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_14
+      rect:
+        serializedVersion: 2
+        x: 2447
+        y: 583
+        width: 399
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66e2488310ea7442aac5ef690f43e21
+      internalID: -2204519385514740679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 98
+        width: 306
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b20e3fb25573fa4ebdd6d7117029449
+      internalID: -2083161047046303497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_16
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 89
+        width: 296
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b26ebcad8634d41b721cf1a3cd33ed
+      internalID: -2565736857277755999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_17
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 119
+        width: 315
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9f1387f30b1bc429f1cc3086356252
+      internalID: -5173245514744237228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_18
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 151
+        width: 158
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3ba66b47fed8248b1e9a95e559b8d1
+      internalID: -8470014663188006159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_Vector_Transparentsd_19
+      rect:
+        serializedVersion: 2
+        x: 2577
+        y: 138
+        width: 151
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33c07950540233418f5b19874d70566
+      internalID: -6565795087995130158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
