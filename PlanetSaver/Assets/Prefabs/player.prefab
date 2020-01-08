@@ -1302,11 +1302,12 @@ GameObject:
   - component: {fileID: 8321709896208587007}
   - component: {fileID: 8321709896208587004}
   - component: {fileID: 8321709896208587006}
-  - component: {fileID: -4692769577882742362}
   - component: {fileID: 141391932}
+  - component: {fileID: 141391933}
+  - component: {fileID: 141391939}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1388,20 +1389,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   joystick: {fileID: 0}
---- !u!114 &-4692769577882742362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8321709896208587002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4824df05e154a4ebf55e7986fe77f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 2308358183085187457, guid: 71fa6a4292d8f804d8ecee75b80727f9, type: 3}
-  fireRate: 0.5
 --- !u!114 &141391932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,6 +1402,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryAttack: 0
+  skill1: 0
+  skill2: 0
+  skill3: 0
+  skill4: 0
+--- !u!114 &141391933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321709896208587002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf70e57dc43a94c49bf9f2080d0004ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeapon: {fileID: 141391939}
+  skillList: []
+--- !u!114 &141391939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321709896208587002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d0d5bd08710f4b9a7d312480c176c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: RocketLauncher
+  bullet: {fileID: 2308358183085187457, guid: 71fa6a4292d8f804d8ecee75b80727f9, type: 3}
+  fireRate: 0.5
 --- !u!1 &8321709896389363337
 GameObject:
   m_ObjectHideFlags: 0

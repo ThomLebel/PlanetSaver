@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,25 +21,36 @@ public class WeaponManager : MonoBehaviour
     {
 		if (inputManager.primaryAttack)
 		{
-			primaryWeapon.Use();
+			primaryWeapon.Use(gameObject);
 		}
 		if (inputManager.skill1)
 		{
-			skillList[0].Use();
+			skillList[0].Use(gameObject);
 		}
 		if (inputManager.skill2)
 		{
-			skillList[1].Use();
+			skillList[1].Use(gameObject);
 		}
 		if (inputManager.skill3)
 		{
-			skillList[2].Use();
+			skillList[2].Use(gameObject);
 		}
 		if (inputManager.skill4)
 		{
-			skillList[3].Use();
+			skillList[3].Use(gameObject);
 		}
 	}
 
+	public void AddWeapon(string weapon)
+	{
+		if (primaryWeapon != null)
+		{
+			Destroy(primaryWeapon);
+		}
+		Type mType = Type.GetType(weapon);
+		Component temp = gameObject.AddComponent(mType);
+		primaryWeapon = temp as Weapon;
+
+	}
 	
 }

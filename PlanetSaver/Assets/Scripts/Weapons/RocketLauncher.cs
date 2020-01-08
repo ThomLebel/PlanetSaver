@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RocketLauncher : Weapon
@@ -9,17 +10,28 @@ public class RocketLauncher : Weapon
 
 	private float nextShot = 0f;
 
-	public override void Use()
+	private void Start()
 	{
-		base.Use();
-		if (nextShot <= 0f)
-		{
-			nextShot += fireRate;
-			Instantiate(bullet, transform.position, transform.rotation);
-		}
+		weaponName = "RocketLauncher";
+		bullet = WeaponsContainer.instance.munitions.Where(obj => obj.name == "bullet").SingleOrDefault();
+		fireRate = 0.5f;
+	}
+
+	private void Update()
+	{
 		if (nextShot > 0f)
 		{
 			nextShot -= Time.deltaTime;
+		}
+	}
+
+	public override void Use(GameObject user)
+	{
+		base.Use(user);
+		if (nextShot <= 0f)
+		{
+			nextShot += fireRate;
+			Instantiate(bullet, user.transform.position, user.transform.rotation);
 		}
 	}
 }

@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
 	public string weaponName;
 
-	public virtual void Use()
+	public virtual void Use(GameObject user)
 	{
 		Debug.Log("You used the " + weaponName);
 	}
