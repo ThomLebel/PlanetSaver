@@ -30,5 +30,6 @@ public class MoveToTargetScript : MonoBehaviour
 		}
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+		transform.right = target.position - transform.position;
 	}
 }
