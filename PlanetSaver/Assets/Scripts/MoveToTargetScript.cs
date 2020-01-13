@@ -1,35 +1,78 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 [RequireComponent(typeof(AssignTargetScript))]
 public class MoveToTargetScript : MonoBehaviour
 {
-	public string targetTag;
 	public float speed;
 
-	private Transform target;
-	private AssignTargetScript assignTarget;
+	[SerializeField] private Transform target;
+	[SerializeField] private bool destinationReach;
 
 	private void Awake()
 	{
-		assignTarget = gameObject.GetComponent<AssignTargetScript>();
+		EventManager.StartListening("DestinationReach", DestinationReach);
+		EventManager.StartListening("SetTarget", SetTarget);
 	}
 
 	private void Start()
 	{
-		target = assignTarget.FindClosestTarget(targetTag, transform.position);
+
+	}
+
+	private void OnDisable()
+	{
+		//EventManager.StopListening("DestinationReach", DestinationReach);
 	}
 
 	// Update is called once per frame
 	void Update()
     {
-		if (target == null)
+		if (target == null || destinationReach)
 		{
 			return;
 		}
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 		transform.right = target.position - transform.position;
+	}
+
+	private void SetTarget()
+	{
+		var sender = EventManager.GetSender("SetTarget");
+
+		if (sender != null)
+		{
+			GameObject go = (GameObject)sender;
+
+			if (go != gameObject)
+			{
+				return;
+			}
+
+			target = (Transform)EventManager.GetData("Target");
+			Debug.Log(gameObject.name+" found a target");
+		}
+	}
+
+	private void DestinationReach()
+	{
+		var sender = EventManager.GetSender("DestinationReach");
+		
+		if (sender != null)
+		{
+			GameObject go = (GameObject)sender;
+			Debug.Log(gameObject.name + " received an event from " + go);
+
+			if (go != gameObject)
+			{
+				return;
+			}
+
+			destinationReach = true;
+			Debug.Log(gameObject.name + " Destination reached");
+		}
 	}
 }

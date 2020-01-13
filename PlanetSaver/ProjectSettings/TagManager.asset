@@ -6,6 +6,9 @@ TagManager:
   tags:
   - meteor
   - planet
+  - Enemy_Demon
+  - Enemy_Monster
+  - enemy
   layers:
   - Default
   - TransparentFX

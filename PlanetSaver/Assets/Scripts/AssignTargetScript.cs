@@ -1,9 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 public class AssignTargetScript : MonoBehaviour
 {
+	public string targetTag;
+	public bool findClosest;
+
+	private void Start()
+	{
+		Transform target = null;
+		if (findClosest)
+		{
+			target = FindClosestTarget(targetTag, transform.position);
+		}
+		else
+		{
+			target = FindTarget(targetTag);
+		}
+
+		EventManager.SetData("Target", target);
+		EventManager.EmitEvent("SetTarget", this.gameObject);
+	}
+
 	public Transform FindTarget(string targetTag)
 	{
 		GameObject[] targetList = FindTargetArray(targetTag);
