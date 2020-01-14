@@ -2,42 +2,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 [RequireComponent(typeof(InputManager))]
 public class WeaponManager : MonoBehaviour
 {
 	public Weapon primaryWeapon;
-	public List<Weapon> skillList;
+	public List<string> targetsTag;
 
-	private InputManager inputManager;
+	public bool primaryAttack;
 
 	private void Awake()
 	{
-		inputManager = GetComponent<InputManager>();
+		EventManager.StartListening(EventsNames.ActionEvent.UseAttack.ToString(), this.gameObject, UseWeapon);
+	}
+
+	private void Start()
+	{
+		primaryWeapon.targetTags = targetsTag;
 	}
 
 	// Update is called once per frame
 	void Update()
     {
-		if (inputManager.primaryAttack)
+		if (primaryAttack)
 		{
 			primaryWeapon.Use(gameObject);
 		}
-		if (inputManager.skill1)
+	}
+
+	private void UseWeapon()
+	{
+		var sender = EventManager.GetSender(EventsNames.ActionEvent.UseAttack.ToString());
+
+		if (sender != null)
 		{
-			skillList[0].Use(gameObject);
-		}
-		if (inputManager.skill2)
-		{
-			skillList[1].Use(gameObject);
-		}
-		if (inputManager.skill3)
-		{
-			skillList[2].Use(gameObject);
-		}
-		if (inputManager.skill4)
-		{
-			skillList[3].Use(gameObject);
+			GameObject go = (GameObject)sender;
+
+			if (go != gameObject)
+			{
+				return;
+			}
+
+			primaryAttack = EventManager.GetBool(EventsNames.ActionEvent.UseAttack.ToString());
 		}
 	}
 
@@ -52,5 +59,4 @@ public class WeaponManager : MonoBehaviour
 		primaryWeapon = temp as Weapon;
 
 	}
-	
 }

@@ -13,18 +13,13 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening("DestinationReach", DestinationReach);
-		EventManager.StartListening("SetTarget", SetTarget);
-	}
-
-	private void Start()
-	{
-
+		EventManager.StartListening(EventsNames.MovementEvent.DestinationReach.ToString(), DestinationReach);
+		EventManager.StartListening(EventsNames.CommonEvent.SetTarget.ToString(), SetTarget);
 	}
 
 	private void OnDisable()
 	{
-		//EventManager.StopListening("DestinationReach", DestinationReach);
+		//EventManager.StopListening(EventsNames.MovementEvent.DestinationReach.ToString(), DestinationReach);
 	}
 
 	// Update is called once per frame
@@ -36,12 +31,12 @@ public class MoveToTargetScript : MonoBehaviour
 		}
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-		transform.right = target.position - transform.position;
+		transform.up = target.position - transform.position;
 	}
 
 	private void SetTarget()
 	{
-		var sender = EventManager.GetSender("SetTarget");
+		var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
 
 		if (sender != null)
 		{
@@ -59,7 +54,7 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void DestinationReach()
 	{
-		var sender = EventManager.GetSender("DestinationReach");
+		var sender = EventManager.GetSender(EventsNames.MovementEvent.DestinationReach.ToString());
 		
 		if (sender != null)
 		{

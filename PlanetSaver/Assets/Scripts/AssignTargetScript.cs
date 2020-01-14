@@ -21,7 +21,7 @@ public class AssignTargetScript : MonoBehaviour
 		}
 
 		EventManager.SetData("Target", target);
-		EventManager.EmitEvent("SetTarget", this.gameObject);
+		EventManager.EmitEvent(EventsNames.CommonEvent.SetTarget.ToString(), this.gameObject);
 	}
 
 	public Transform FindTarget(string targetTag)

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(InputManager))]
 public class ShootScript : MonoBehaviour
 {
-	public GameObject bullet;
+	/*public GameObject bullet;
 	public float fireRate;
 
 	private float nextShot = 0f;
@@ -35,5 +35,5 @@ public class ShootScript : MonoBehaviour
 		{
 			nextShot -= Time.deltaTime;
 		}
-    }
+    }*/
 }

@@ -4,11 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - meteor
-  - planet
-  - Enemy_Demon
-  - Enemy_Monster
-  - enemy
+  - Planet
+  - Meteor
+  - Enemy
   layers:
   - Default
   - TransparentFX

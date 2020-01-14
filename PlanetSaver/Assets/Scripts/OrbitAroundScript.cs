@@ -15,12 +15,7 @@ public class OrbitAroundScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening("SetTarget", SetTarget);
-	}
-
-	private void Start()
-	{
-
+		EventManager.StartListening(EventsNames.CommonEvent.SetTarget.ToString(), SetTarget);
 	}
 
 	private void Update()
@@ -31,14 +26,16 @@ public class OrbitAroundScript : MonoBehaviour
 		if (targetDistance <= orbitDistance && !isOrbiting)
 		{
 			isOrbiting = true;
-			EventManager.EmitEvent("DestinationReach", this.gameObject);
+			EventManager.EmitEvent(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject);
 			Debug.Log(gameObject.name + " start Orbiting");
+			EventManager.SetData(EventsNames.ActionEvent.UseAttack.ToString(), true);
+			EventManager.EmitEvent(EventsNames.ActionEvent.UseAttack.ToString(), "tag:Enemy", 0f, this.gameObject);
 		}
 	}
 
 	private void SetTarget()
 	{
-		var sender = EventManager.GetSender("SetTarget");
+		var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
 
 		if (sender != null)
 		{
@@ -62,6 +59,6 @@ public class OrbitAroundScript : MonoBehaviour
 		}
 
 		transform.RotateAround(target.localPosition, Vector3.back, Time.deltaTime*velocity);
-		transform.right = target.position - transform.position;
+		transform.up = target.position - transform.position;
 	}
 }

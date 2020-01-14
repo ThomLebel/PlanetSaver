@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TigerForge;
 
 public class RocketLauncher : Weapon
 {
 	public GameObject bullet;
 	public float fireRate;
+	public float damage;
 
 	private float nextShot = 0f;
 
@@ -14,7 +16,7 @@ public class RocketLauncher : Weapon
 	{
 		weaponName = "RocketLauncher";
 		bullet = WeaponsContainer.instance.munitions.Where(obj => obj.name == "bullet").SingleOrDefault();
-		fireRate = 0.5f;
+		//fireRate = 0.5f;
 	}
 
 	private void Update()
@@ -31,7 +33,12 @@ public class RocketLauncher : Weapon
 		if (nextShot <= 0f)
 		{
 			nextShot += fireRate;
-			Instantiate(bullet, user.transform.position, user.transform.rotation);
+			GameObject shot = Instantiate(bullet, user.transform.position, user.transform.rotation);
+			shot.tag = gameObject.tag;
+			ImpactScript impact = shot.AddComponent<ImpactScript>();
+			impact.targetsTag = targetTags;
+			impact.impactDamage = damage;
+
 		}
 	}
 }

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -2993634847709050617}
   m_Layer: 0
   m_Name: meteor
-  m_TagString: meteor
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: planet
   speed: 3
+  target: {fileID: 0}
+  destinationReach: 0
 --- !u!114 &8873740251047452231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e68c972da1d4c897e8a9e31d353d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: Planet
+  findClosest: 0
 --- !u!114 &1559896276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6424543e6608d3a429ba2f66573bcc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: 10
+  collisionDamage: -10
   targetsTag:
   - Player
-  - planet
+  - Planet

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4558501713162576321}
   - component: {fileID: 116023459}
   - component: {fileID: 116023458}
-  - component: {fileID: 5900776582863436934}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -74,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97c3ebf47473cce4f9503e3935f017f8, type: 3}
+  m_Sprite: {fileID: 5646850331836493594, guid: 6600429ad3e8867469de328d36fa7d27,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,18 +137,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1.5
---- !u!114 &5900776582863436934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2308358183085187457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6424543e6608d3a429ba2f66573bcc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDamage: -5
-  targetsTag:
-  - meteor
