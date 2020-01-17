@@ -7,7 +7,7 @@ using TigerForge;
 [RequireComponent(typeof(InputManager))]
 public class WeaponManager : MonoBehaviour
 {
-	public Weapon primaryWeapon;
+	public List<Weapon> primaryWeapons;
 	public List<string> targetsTag;
 
 	public bool primaryAttack;
@@ -19,7 +19,10 @@ public class WeaponManager : MonoBehaviour
 
 	private void Start()
 	{
-		primaryWeapon.targetTags = targetsTag;
+		foreach (Weapon weapon in primaryWeapons)
+		{
+			weapon.targetTags = targetsTag;
+		}
 	}
 
 	// Update is called once per frame
@@ -27,7 +30,10 @@ public class WeaponManager : MonoBehaviour
     {
 		if (primaryAttack)
 		{
-			primaryWeapon.Use(gameObject);
+			foreach (Weapon weapon in primaryWeapons)
+			{
+				weapon.Use(gameObject);
+			}
 		}
 	}
 
@@ -50,13 +56,13 @@ public class WeaponManager : MonoBehaviour
 
 	public void AddWeapon(string weapon)
 	{
-		if (primaryWeapon != null)
+		/*if (primaryWeapon != null)
 		{
 			Destroy(primaryWeapon);
 		}
 		Type mType = Type.GetType(weapon);
 		Component temp = gameObject.AddComponent(mType);
-		primaryWeapon = temp as Weapon;
+		primaryWeapon = temp as Weapon;*/
 
 	}
 }

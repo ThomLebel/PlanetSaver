@@ -10,7 +10,7 @@ public class HealthScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), this.gameObject, AdjustHealth);
+		EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), AdjustHealth);
 	}
 
 	private void Start()

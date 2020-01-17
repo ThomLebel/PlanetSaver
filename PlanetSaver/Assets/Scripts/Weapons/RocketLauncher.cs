@@ -6,18 +6,12 @@ using TigerForge;
 
 public class RocketLauncher : Weapon
 {
-	public GameObject bullet;
+	public GameObject rocket;
+	public Transform rocketSpawn;
 	public float fireRate;
 	public float damage;
 
 	private float nextShot = 0f;
-
-	private void Start()
-	{
-		weaponName = "RocketLauncher";
-		bullet = WeaponsContainer.instance.munitions.Where(obj => obj.name == "bullet").SingleOrDefault();
-		//fireRate = 0.5f;
-	}
 
 	private void Update()
 	{
@@ -33,11 +27,12 @@ public class RocketLauncher : Weapon
 		if (nextShot <= 0f)
 		{
 			nextShot += fireRate;
-			GameObject shot = Instantiate(bullet, user.transform.position, user.transform.rotation);
+			
+			GameObject shot = Instantiate(rocket, rocketSpawn.position, user.transform.rotation);
 			shot.tag = gameObject.tag;
-			ImpactScript impact = shot.AddComponent<ImpactScript>();
-			impact.targetsTag = targetTags;
-			impact.impactDamage = damage;
+			CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
+			collisionScript.targetsTag = targetTags;
+			collisionScript.collisionDamage = damage;
 
 		}
 	}

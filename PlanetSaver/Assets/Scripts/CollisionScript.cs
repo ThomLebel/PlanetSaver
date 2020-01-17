@@ -20,7 +20,11 @@ public class CollisionScript : MonoBehaviour
 
 	private void HandleCollision(Transform target)
 	{
-		Debug.Log("Send collision event");
+		if (target.CompareTag(gameObject.tag))
+		{
+			return;
+		}
+
 		foreach (string tag in targetsTag)
 		{
 			if (target.CompareTag(tag))

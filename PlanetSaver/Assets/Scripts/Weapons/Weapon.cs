@@ -10,6 +10,6 @@ public class Weapon : MonoBehaviour
 
 	public virtual void Use(GameObject user)
 	{
-		Debug.Log("You used the " + weaponName);
+		//Debug.Log("You used the " + weaponName);
 	}
 }
