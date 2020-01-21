@@ -16,5 +16,7 @@
 	{
 		GetOwner,
 		SetTarget,
+		EnemySpawned,
+		StopSpawning,
 	}
 }

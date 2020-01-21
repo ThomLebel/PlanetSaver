@@ -13,7 +13,7 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.MovementEvent.DestinationReach.ToString(), DestinationReach);
+		EventManager.StartListening(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject, DestinationReach);
 		EventManager.StartListening(EventsNames.CommonEvent.SetTarget.ToString(), SetTarget);
 	}
 
