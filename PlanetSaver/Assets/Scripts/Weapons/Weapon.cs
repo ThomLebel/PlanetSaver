@@ -7,9 +7,12 @@ public class Weapon : MonoBehaviour
 	public string weaponName;
 
 	public List<string> targetTags = new List<string>();
+	protected bool weaponActive;
 
 	public virtual void Use(GameObject user)
 	{
-		//Debug.Log("You used the " + weaponName);
+		if(!weaponActive){
+			weaponActive = true;
+		}
 	}
 }

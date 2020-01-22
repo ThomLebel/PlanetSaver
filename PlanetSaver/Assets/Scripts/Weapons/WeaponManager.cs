@@ -38,23 +38,24 @@ public class WeaponManager : MonoBehaviour
 	}
 
 	private void UseWeapon()
-	{
-		var sender = EventManager.GetSender(EventsNames.ActionEvent.UseAttack.ToString());
+    {
+        var sender = EventManager.GetSender(EventsNames.ActionEvent.UseAttack.ToString());
 
-		if (sender != null)
-		{
-			GameObject go = (GameObject)sender;
+        if (sender == null)
+        {
+            return;
+        }
+        GameObject go = (GameObject)sender;
 
-			if (go != gameObject)
-			{
-				return;
-			}
+        if (go != gameObject)
+        {
+            return;
+        }
 
-			primaryAttack = EventManager.GetBool(EventsNames.ActionEvent.UseAttack.ToString());
-		}
-	}
+        primaryAttack = EventManager.GetBool(EventsNames.ActionEvent.UseAttack.ToString());
+    }
 
-	public void AddWeapon(string weapon)
+    public void AddWeapon(string weapon)
 	{
 		/*if (primaryWeapon != null)
 		{

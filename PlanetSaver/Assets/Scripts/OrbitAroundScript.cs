@@ -19,46 +19,49 @@ public class OrbitAroundScript : MonoBehaviour
 	}
 
 	private void Update()
-	{
-		Vector3 directionToTarget = target.position - transform.position;
-		targetDistance = directionToTarget.sqrMagnitude;
-
-		if (targetDistance <= orbitDistance && !isOrbiting)
-		{
-			isOrbiting = true;
-			EventManager.EmitEvent(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject);
-			Debug.Log(gameObject.name + " start Orbiting");
-			EventManager.SetData(EventsNames.ActionEvent.UseAttack.ToString(), true);
-			EventManager.EmitEvent(EventsNames.ActionEvent.UseAttack.ToString(), "tag:Enemy", 0f, this.gameObject);
-		}
-	}
-
-	private void SetTarget()
-	{
-		var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
-
-		if (sender != null)
-		{
-			GameObject go = (GameObject)sender;
-
-			if (go != gameObject)
-			{
-				return;
-			}
-
-			target = (Transform)EventManager.GetData("Target");
-		}
-	}
-
-	// Update is called once per frame
-	void FixedUpdate()
     {
-		if (!isOrbiting)
-		{
-			return;
-		}
+        if (target == null)
+        {
+            return;
+        }
+        targetDistance = (target.position - transform.position).sqrMagnitude;
 
-		transform.RotateAround(target.localPosition, Vector3.back, Time.deltaTime*velocity);
-		transform.up = target.position - transform.position;
-	}
+        if (targetDistance > orbitDistance || isOrbiting)
+        {
+            return;
+        }
+        isOrbiting = true;
+        EventManager.EmitEvent(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject);
+        Debug.Log(gameObject.name + " start Orbiting");
+        EventManager.SetData(EventsNames.ActionEvent.UseAttack.ToString(), true);
+        EventManager.EmitEvent(EventsNames.ActionEvent.UseAttack.ToString(), "tag:Enemy", 0f, this.gameObject);
+    }
+
+    private void SetTarget()
+    {
+        var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
+
+        if (sender == null)
+        {
+            return;
+        }
+        GameObject go = (GameObject)sender;
+
+        if (go != gameObject)
+        {
+            return;
+        }
+
+        target = (Transform)EventManager.GetData("Target");
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (isOrbiting)
+        {
+            transform.RotateAround(target.localPosition, Vector3.back, Time.deltaTime * velocity);
+            transform.up = target.position - transform.position;
+        }
+    }
 }

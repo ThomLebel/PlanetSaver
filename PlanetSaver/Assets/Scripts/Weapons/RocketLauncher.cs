@@ -11,29 +11,34 @@ public class RocketLauncher : Weapon
 	public float fireRate;
 	public float damage;
 
-	private float nextShot = 0f;
+	[SerializeField] private float nextShot = 0f;
 
 	private void Update()
-	{
-		if (nextShot > 0f)
-		{
-			nextShot -= Time.deltaTime;
+    {
+		if(!weaponActive){
+			return;
 		}
-	}
 
-	public override void Use(GameObject user)
-	{
-		base.Use(user);
-		if (nextShot <= 0f)
-		{
-			nextShot += fireRate;
-			
-			GameObject shot = Instantiate(rocket, rocketSpawn.position, user.transform.rotation);
-			shot.tag = gameObject.tag;
-			CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
-			collisionScript.targetsTag = targetTags;
-			collisionScript.collisionDamage = damage;
+        if (nextShot <= 0f)
+        {
+            return;
+        }
+        nextShot -= Time.deltaTime;
+    }
 
-		}
-	}
+    public override void Use(GameObject user)
+    {
+        base.Use(user);
+        if (nextShot > 0f)
+        {
+            return;
+        }
+        nextShot += fireRate;
+
+        GameObject shot = Instantiate(rocket, rocketSpawn.position, user.transform.rotation);
+        shot.tag = gameObject.tag;
+        CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
+        collisionScript.targetsTag = targetTags;
+        collisionScript.collisionDamage = damage;
+    }
 }

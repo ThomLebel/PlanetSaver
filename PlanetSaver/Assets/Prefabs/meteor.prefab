@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8873740251047452229}
   - component: {fileID: 8873740251047452226}
   - component: {fileID: -5875196179884439822}
-  - component: {fileID: 8873740251047452233}
   - component: {fileID: 8873740251047452230}
   - component: {fileID: 8873740251047452231}
   - component: {fileID: 1559896276}
@@ -126,21 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8873740251047452233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873740251047452227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5433a8bd61107f14fb69c216010e62e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 10
-  damageToPlayer: 5
-  damageToPlanet: 30
 --- !u!114 &8873740251047452230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bba25cd7e04c345a476ec36fe2c8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
 --- !u!114 &-2993634847709050617
 MonoBehaviour:
   m_ObjectHideFlags: 0

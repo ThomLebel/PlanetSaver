@@ -43,16 +43,16 @@ public class EnemySpawnerScript : MonoBehaviour
 		if (stopSpawning)
 			return;
 
-		if (nextSpawn > 0f)
-		{
-			nextSpawn -= Time.deltaTime;
-		}
-		else
-		{
-			SpawnEnemy();
-			nextSpawn = spawnRate;
-		}
-	}
+        if (nextSpawn <= 0f)
+        {
+            SpawnEnemy();
+            nextSpawn = spawnRate;
+        }
+        else
+        {
+            nextSpawn -= Time.deltaTime;
+        }
+    }
 
 	private void SpawnEnemy()
 	{
@@ -69,16 +69,15 @@ public class EnemySpawnerScript : MonoBehaviour
 
 	private Vector3 GetRandomPointOnSpawnCircle()
 	{
-		Vector3 pos;
-
-		circleRadius = (cam.orthographicSize * cam.aspect) + Mathf.Abs(cameraRig.position.x) + offset;
+        circleRadius = (cam.orthographicSize * cam.aspect) + Mathf.Abs(cameraRig.position.x) + offset;
 
 		float degree = Random.Range(minAngle, maxAngle);
 		float radian = degree * Mathf.Deg2Rad;
 		float x = Mathf.Cos(radian);
 		float y = Mathf.Sin(radian);
-		pos = new Vector3(x, y, 0) * circleRadius;
+		
+        Vector3 pos = new Vector3(x, y, 0) * circleRadius;
 
-		return pos;
+        return pos;
 	}
 }
