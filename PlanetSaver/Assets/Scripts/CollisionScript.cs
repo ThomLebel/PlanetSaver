@@ -29,8 +29,6 @@ public class CollisionScript : MonoBehaviour
 		{
 			if (target.CompareTag(tag))
 			{
-				Debug.Log("hit : " + tag);
-
 				EventManager.SetDataGroup(EventsNames.ActionEvent.DoDamage.ToString(), target.gameObject, collisionDamage);
 				EventManager.EmitEvent(EventsNames.ActionEvent.DoDamage.ToString(), this.gameObject);
 

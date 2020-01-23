@@ -7,6 +7,8 @@ TagManager:
   - Planet
   - Meteor
   - Enemy
+  - Shield
+  - Collectible
   layers:
   - Default
   - TransparentFX

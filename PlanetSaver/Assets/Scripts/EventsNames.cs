@@ -10,6 +10,7 @@
 		UseAttack,
 		UseSkill,
 		DoDamage,
+		Heal,
 	}
 
 	public enum CommonEvent
@@ -18,5 +19,7 @@
 		SetTarget,
 		EnemySpawned,
 		StopSpawning,
+		CollectiblePickedUp,
+		CollectCoin,
 	}
 }

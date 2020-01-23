@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 869306258867140944}
   - component: {fileID: 869306258867140946}
   - component: {fileID: 869306258867140945}
+  - component: {fileID: 4323889852353515040}
   - component: {fileID: 9181927460826798481}
   - component: {fileID: 869306258867140947}
   - component: {fileID: 9181927460826798480}
@@ -88,6 +89,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4323889852353515040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869306258867140951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb61270f01b63a47a6d2b694f26f729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
 --- !u!114 &9181927460826798481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryWeapons:
-  - {fileID: 1685613487848058095}
+  - {fileID: 333002235648380774}
   targetsTag:
   - Meteor
   - Enemy
@@ -380,6 +394,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5445643658799880891}
     m_Modifications:
+    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: damage
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Name
@@ -448,9 +467,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6566664484148961997}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1685613487848058095 stripped
+--- !u!114 &333002235648380774 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+  m_CorrespondingSourceObject: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
     type: 3}
   m_PrefabInstance: {fileID: 6566664484148961997}
   m_PrefabAsset: {fileID: 0}

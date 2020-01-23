@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusScript : MonoBehaviour
+public class BonusScript : CollectibleScript
 {
-	public string bonusToGet;
+	public List<TemporaryBonusScript> bonusList;
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.CompareTag("Player"))
-		{
-			Debug.Log("Get a new Skill");
-			collision.GetComponent<WeaponManager>().AddWeapon(bonusToGet);
-			Destroy(gameObject);
-		}
+	protected override void GetCollected(GameObject target){
+		if(target == null){
+            return;
+        }
+
+		int randomBonusIndex = Random.Range(0, bonusList.Count);
+		bonusList[randomBonusIndex].Effect(target);
+		Debug.Log("You get the "+bonusList[randomBonusIndex].bonusName+" bonus !");
+
+		Destroy(this.gameObject);
 	}
 }

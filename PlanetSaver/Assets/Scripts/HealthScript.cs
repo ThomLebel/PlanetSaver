@@ -10,7 +10,8 @@ public class HealthScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), AdjustHealth);
+		EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), TakeDamage);
+		EventManager.StartListening(EventsNames.ActionEvent.Heal.ToString(), this.gameObject, Heal);
 	}
 
 	private void Start()
@@ -18,7 +19,7 @@ public class HealthScript : MonoBehaviour
 		maxHealth = health;
 	}
 
-	public void AdjustHealth()
+	private void TakeDamage()
 	{
 		var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.DoDamage.ToString());
 
@@ -34,7 +35,29 @@ public class HealthScript : MonoBehaviour
 			return;
 		}
 
-		health += eventData[1].ToFloat(); ;
+		AdjustHealth(eventData[1].ToFloat());		
+	}
+
+	private void Heal(){
+		var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.Heal.ToString());
+
+		if (eventData == null)
+		{
+			return;
+		}
+
+		GameObject target = eventData[0].ToGameObject();
+
+		if (target != this.gameObject)
+		{
+			return;
+		}
+
+		AdjustHealth(eventData[1].ToFloat());
+	}
+
+	private void AdjustHealth(float value){
+		health += value;
 
 		if (health > maxHealth)
 		{
@@ -47,7 +70,7 @@ public class HealthScript : MonoBehaviour
 		}
 	}
 
-	public void AdjustMaxHealth(float value)
+	private void AdjustMaxHealth(float value)
 	{
 		maxHealth += value;
 	}
