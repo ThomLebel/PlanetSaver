@@ -21,5 +21,6 @@
 		StopSpawning,
 		CollectiblePickedUp,
 		CollectCoin,
+		CreateBullet,
 	}
 }

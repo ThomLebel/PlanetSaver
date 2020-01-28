@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 
-[RequireComponent(typeof(InputManager))]
 public class WeaponManager : MonoBehaviour
 {
 	public List<Weapon> primaryWeapons;

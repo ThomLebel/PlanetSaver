@@ -48,7 +48,6 @@ public class MoveToTargetScript : MonoBehaviour
 			}
 
 			target = (Transform)EventManager.GetData("Target");
-			Debug.Log(gameObject.name+" found a target");
 		}
 	}
 
@@ -59,7 +58,6 @@ public class MoveToTargetScript : MonoBehaviour
 		if (sender != null)
 		{
 			GameObject go = (GameObject)sender;
-			Debug.Log(gameObject.name + " received an event from " + go);
 
 			if (go != gameObject)
 			{
@@ -67,7 +65,6 @@ public class MoveToTargetScript : MonoBehaviour
 			}
 
 			destinationReach = true;
-			Debug.Log(gameObject.name + " Destination reached");
 		}
 	}
 }
