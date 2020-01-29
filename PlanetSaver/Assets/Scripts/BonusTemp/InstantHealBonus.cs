@@ -11,7 +11,7 @@ public class InstantHealBonus : TemporaryBonusScript
     public override void Effect(GameObject player){
         float heal = Random.Range(minHeal, maxHeal);
 
-        EventManager.SetDataGroup(EventsNames.ActionEvent.Heal.ToString(), player, heal);
-        EventManager.EmitEvent(EventsNames.ActionEvent.Heal.ToString(), "tag:Player");
+        EventManager.SetDataGroup(ConstantVar.HEAL, player, heal);
+        EventManager.EmitEvent(ConstantVar.HEAL, "tag:Player");
     }
 }

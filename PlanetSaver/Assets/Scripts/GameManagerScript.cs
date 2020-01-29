@@ -12,12 +12,12 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		EventManager.StartListening(EventsNames.CommonEvent.EnemySpawned.ToString(), EnemySpawned);
+		EventManager.StartListening(ConstantVar.ENEMY_SPAWNED, EnemySpawned);
     }
 
 	private void OnDisable()
 	{
-		EventManager.StopListening(EventsNames.CommonEvent.EnemySpawned.ToString(), EnemySpawned);
+		EventManager.StopListening(ConstantVar.ENEMY_SPAWNED, EnemySpawned);
 	}
 
 	// Update is called once per frame
@@ -32,7 +32,7 @@ public class GameManagerScript : MonoBehaviour
 
 		if (currentEnemyCount >= enemyLimit)
 		{
-			EventManager.EmitEvent(EventsNames.CommonEvent.StopSpawning.ToString());
+			EventManager.EmitEvent(ConstantVar.STOP_SPAWNING);
 			currentEnemyCount = 0;
 		}
 	}

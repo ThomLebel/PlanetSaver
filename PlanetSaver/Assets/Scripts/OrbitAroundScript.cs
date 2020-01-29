@@ -15,7 +15,7 @@ public class OrbitAroundScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.CommonEvent.SetTarget.ToString(), SetTarget);
+		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
 	}
 
 	private void Update()
@@ -31,28 +31,22 @@ public class OrbitAroundScript : MonoBehaviour
             return;
         }
         isOrbiting = true;
-        EventManager.EmitEvent(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject);
-        Debug.Log(gameObject.name + " start Orbiting");
-        EventManager.SetData(EventsNames.ActionEvent.UseAttack.ToString(), true);
-        EventManager.EmitEvent(EventsNames.ActionEvent.UseAttack.ToString(), "tag:Enemy", 0f, this.gameObject);
+        EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, this.gameObject);
+        
+        EventManager.SetData(ConstantVar.USE_ATTACK, true);
+        EventManager.EmitEvent(ConstantVar.USE_ATTACK, "tag:Enemy", 0f, this.gameObject);
     }
 
     private void SetTarget()
     {
-        var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
+        GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.SET_TARGET);
 
-        if (sender == null)
-        {
-            return;
-        }
-        GameObject go = (GameObject)sender;
-
-        if (go != gameObject)
+        if (sender == null || sender != gameObject)
         {
             return;
         }
 
-        target = (Transform)EventManager.GetData("Target");
+        target = (Transform)EventManager.GetData(ConstantVar.SET_TARGET);
     }
 
     // Update is called once per frame

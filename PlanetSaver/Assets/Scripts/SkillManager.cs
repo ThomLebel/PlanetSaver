@@ -14,7 +14,7 @@ public class SkillManager : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.ActionEvent.UseSkill.ToString(), this.gameObject, UseSkill);
+		EventManager.StartListening(ConstantVar.USE_SKILL, this.gameObject, UseSkill);
 	}
 
 	// Update is called once per frame
@@ -40,7 +40,7 @@ public class SkillManager : MonoBehaviour
 
 	private void UseSkill()
 	{
-		var sender = EventManager.GetSender(EventsNames.ActionEvent.UseSkill.ToString());
+		var sender = EventManager.GetSender(ConstantVar.USE_SKILL);
 
 		if (sender != null)
 		{
@@ -51,7 +51,7 @@ public class SkillManager : MonoBehaviour
 				return;
 			}
 
-			var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.UseAttack.ToString());
+			var eventData = EventManager.GetDataGroup(ConstantVar.USE_SKILL);
 			string skill = eventData[0].ToString();
 			bool skillOn = eventData[1].ToBool();
 

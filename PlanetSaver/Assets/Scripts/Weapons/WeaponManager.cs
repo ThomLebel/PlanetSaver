@@ -13,7 +13,7 @@ public class WeaponManager : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.ActionEvent.UseAttack.ToString(), this.gameObject, UseWeapon);
+		EventManager.StartListening(ConstantVar.USE_ATTACK, this.gameObject, UseWeapon);
 	}
 
 	private void Start()
@@ -38,7 +38,7 @@ public class WeaponManager : MonoBehaviour
 
 	private void UseWeapon()
     {
-        var sender = EventManager.GetSender(EventsNames.ActionEvent.UseAttack.ToString());
+        var sender = EventManager.GetSender(ConstantVar.USE_ATTACK);
 
         if (sender == null)
         {
@@ -51,7 +51,7 @@ public class WeaponManager : MonoBehaviour
             return;
         }
 
-        primaryAttack = EventManager.GetBool(EventsNames.ActionEvent.UseAttack.ToString());
+        primaryAttack = EventManager.GetBool(ConstantVar.USE_ATTACK);
     }
 
     public void AddWeapon(string weapon)

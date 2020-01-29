@@ -8,31 +8,31 @@ public class InputManager : MonoBehaviour
 
 	public void ActivatePrimaryAttack(bool value)
 	{
-		EventManager.SetData(EventsNames.ActionEvent.UseAttack.ToString(), value);
-		EventManager.EmitEvent(EventsNames.ActionEvent.UseAttack.ToString(), "tag:Player",  0f, this.gameObject);
+		EventManager.SetData(ConstantVar.USE_ATTACK, value);
+		EventManager.EmitEvent(ConstantVar.USE_ATTACK, "tag:Player",  0f, this.gameObject);
 	}
 
 	public void ActivateSkill1(bool value)
 	{
-		EventManager.SetDataGroup(EventsNames.ActionEvent.UseSkill.ToString(), "Skill1", value);
-		EventManager.EmitEvent(EventsNames.ActionEvent.UseSkill.ToString(), "tag:Player", 0f, this.gameObject);
+		EventManager.SetDataGroup(ConstantVar.USE_SKILL, "Skill1", value);
+		EventManager.EmitEvent(ConstantVar.USE_SKILL, "tag:Player", 0f, this.gameObject);
 	}
 
 	public void ActivateSkill2(bool value)
 	{
-		EventManager.SetDataGroup(EventsNames.ActionEvent.UseSkill.ToString(), "Skill2", value);
-		EventManager.EmitEvent(EventsNames.ActionEvent.UseSkill.ToString(), "tag:Player", 0f, this.gameObject);
+		EventManager.SetDataGroup(ConstantVar.USE_SKILL, "Skill2", value);
+		EventManager.EmitEvent(ConstantVar.USE_SKILL, "tag:Player", 0f, this.gameObject);
 	}
 
 	public void ActivateSkill3(bool value)
 	{
-		EventManager.SetDataGroup(EventsNames.ActionEvent.UseSkill.ToString(), "Skill3", value);
-		EventManager.EmitEvent(EventsNames.ActionEvent.UseSkill.ToString(), "tag:Player", 0f, this.gameObject);
+		EventManager.SetDataGroup(ConstantVar.USE_SKILL, "Skill3", value);
+		EventManager.EmitEvent(ConstantVar.USE_SKILL, "tag:Player", 0f, this.gameObject);
 	}
 
 	public void ActivateSkill4(bool value)
 	{
-		EventManager.SetDataGroup(EventsNames.ActionEvent.UseSkill.ToString(), "Skill4", value);
-		EventManager.EmitEvent(EventsNames.ActionEvent.UseSkill.ToString(), "tag:Player", 0f, this.gameObject);
+		EventManager.SetDataGroup(ConstantVar.USE_SKILL, "Skill4", value);
+		EventManager.EmitEvent(ConstantVar.USE_SKILL, "tag:Player", 0f, this.gameObject);
 	}
 }

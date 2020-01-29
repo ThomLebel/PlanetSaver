@@ -13,13 +13,13 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.MovementEvent.DestinationReach.ToString(), this.gameObject, DestinationReach);
-		EventManager.StartListening(EventsNames.CommonEvent.SetTarget.ToString(), SetTarget);
+		EventManager.StartListening(ConstantVar.DESTINATION_REACH, this.gameObject, DestinationReach);
+		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
 	}
 
 	private void OnDisable()
 	{
-		//EventManager.StopListening(EventsNames.MovementEvent.DestinationReach.ToString(), DestinationReach);
+		//EventManager.StopListening(ConstantVar.DESTINATION_REACH, DestinationReach);
 	}
 
 	// Update is called once per frame
@@ -36,24 +36,17 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void SetTarget()
 	{
-		var sender = EventManager.GetSender(EventsNames.CommonEvent.SetTarget.ToString());
+		GameObject sender =(GameObject) EventManager.GetSender(ConstantVar.SET_TARGET);
 
-		if (sender != null)
+		if (sender != null || sender != gameObject)
 		{
-			GameObject go = (GameObject)sender;
-
-			if (go != gameObject)
-			{
-				return;
-			}
-
-			target = (Transform)EventManager.GetData("Target");
+			target = (Transform)EventManager.GetData(ConstantVar.SET_TARGET);
 		}
 	}
 
 	private void DestinationReach()
 	{
-		var sender = EventManager.GetSender(EventsNames.MovementEvent.DestinationReach.ToString());
+		var sender = EventManager.GetSender(ConstantVar.DESTINATION_REACH);
 		
 		if (sender != null)
 		{

@@ -8,11 +8,11 @@ public class PlayerScript : MonoBehaviour
     public int money;
 
     private void Start() {
-        EventManager.StartListening(EventsNames.CommonEvent.CollectCoin.ToString(), CollectCoin);
+        EventManager.StartListening(ConstantVar.COLLECT_COIN, CollectCoin);
     }
 
     private void CollectCoin(){
-        var eventData = EventManager.GetDataGroup(EventsNames.CommonEvent.CollectCoin.ToString());
+        var eventData = EventManager.GetDataGroup(ConstantVar.COLLECT_COIN);
         GameObject go = eventData[0].ToGameObject();
 
         if(go != this.gameObject){

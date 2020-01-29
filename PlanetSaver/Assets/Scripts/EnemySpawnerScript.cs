@@ -29,12 +29,12 @@ public class EnemySpawnerScript : MonoBehaviour
 
 	private void Start()
 	{
-		EventManager.StartListening(EventsNames.CommonEvent.StopSpawning.ToString(), StopSpawning);
+		EventManager.StartListening(ConstantVar.STOP_SPAWNING, StopSpawning);
 	}
 
 	private void OnDisable()
 	{
-		EventManager.StopListening(EventsNames.CommonEvent.StopSpawning.ToString(), StopSpawning);
+		EventManager.StopListening(ConstantVar.STOP_SPAWNING, StopSpawning);
 	}
 
 	// Update is called once per frame
@@ -59,7 +59,7 @@ public class EnemySpawnerScript : MonoBehaviour
 		int enemyIndex = Random.Range(0, enemies.Count);
 		Vector3 enemyPos = GetRandomPointOnSpawnCircle();
 		GameObject enemy = Instantiate(enemies[enemyIndex], enemyPos, Quaternion.identity);
-		EventManager.EmitEvent(EventsNames.CommonEvent.EnemySpawned.ToString());
+		EventManager.EmitEvent(ConstantVar.ENEMY_SPAWNED);
 	}
 
 	private void StopSpawning()

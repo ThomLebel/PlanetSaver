@@ -8,8 +8,8 @@ public class RocketLauncher : ShootProjectile
     protected override void CreateProjectile(GameObject user){
         GameObject shot = Instantiate(projectile, projectileSpawn.position, user.transform.rotation);
 
-        EventManager.SetDataGroup(EventsNames.CommonEvent.CreateBullet.ToString(), user, shot);
-        EventManager.EmitEvent(EventsNames.CommonEvent.CreateBullet.ToString(), this.gameObject);
+        EventManager.SetDataGroup(ConstantVar.CREATE_BULLET, user, shot);
+        EventManager.EmitEvent(ConstantVar.CREATE_BULLET, this.gameObject);
 
         shot.tag = gameObject.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();

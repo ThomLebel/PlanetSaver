@@ -12,8 +12,8 @@ public class CoinScript : CollectibleScript
             return;
         }
 
-        EventManager.SetDataGroup(EventsNames.CommonEvent.CollectCoin.ToString(), target, value);
-        EventManager.EmitEvent(EventsNames.CommonEvent.CollectCoin.ToString());
+        EventManager.SetDataGroup(ConstantVar.COLLECT_COIN, target, value);
+        EventManager.EmitEvent(ConstantVar.COLLECT_COIN);
         Destroy(this.gameObject);
     }
 }

@@ -29,8 +29,11 @@ public class CollisionScript : MonoBehaviour
 		{
 			if (target.CompareTag(tag))
 			{
-				EventManager.SetDataGroup(EventsNames.ActionEvent.DoDamage.ToString(), target.gameObject, collisionDamage);
-				EventManager.EmitEvent(EventsNames.ActionEvent.DoDamage.ToString(), this.gameObject);
+				EventManager.SetIndexedDataGroup(ConstantVar.DO_DAMAGE,
+					new EventManager.DataGroup{id = "target", data = target.gameObject},
+					new EventManager.DataGroup{id = "damage", data = collisionDamage}
+				);
+				EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
 
 				Destroy(gameObject);
 			}

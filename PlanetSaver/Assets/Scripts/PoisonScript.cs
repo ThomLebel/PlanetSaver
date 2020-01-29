@@ -39,9 +39,11 @@ public class PoisonScript : MonoBehaviour
         while(true){
             yield return wait;
 
-            EventManager.SetDataGroup(EventsNames.ActionEvent.DoDamage.ToString(), this.gameObject, poisonDamage);
-            EventManager.EmitEvent(EventsNames.ActionEvent.DoDamage.ToString(), this.gameObject);
-            Debug.Log("Poison tick hits ! Enemy lose "+poisonDamage);
+            EventManager.SetIndexedDataGroup(ConstantVar.DO_DAMAGE,
+					new EventManager.DataGroup{id = "target", data = this.gameObject},
+					new EventManager.DataGroup{id = "damage", data = poisonDamage}
+			);
+            EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
         }
         
     }

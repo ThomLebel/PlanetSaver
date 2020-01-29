@@ -12,19 +12,19 @@ public class PoisonModificatorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(EventsNames.CommonEvent.CreateBullet.ToString(), AddEffect);
+        EventManager.StartListening(ConstantVar.CREATE_BULLET, AddEffect);
     }
 
     void Update(){
         if(poisonBuffDuration <= 0){
-          EventManager.StopListening(EventsNames.CommonEvent.CreateBullet.ToString(), AddEffect);
+          EventManager.StopListening(ConstantVar.CREATE_BULLET, AddEffect);
           Destroy(this);
         }
         poisonBuffDuration -= Time.deltaTime;
     }
 
     private void AddEffect(){
-        var eventDataGroup = EventManager.GetDataGroup(EventsNames.CommonEvent.CreateBullet.ToString());
+        var eventDataGroup = EventManager.GetDataGroup(ConstantVar.CREATE_BULLET);
         if(eventDataGroup == null){
             return;
         }

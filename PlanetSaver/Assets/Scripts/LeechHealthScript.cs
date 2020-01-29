@@ -11,20 +11,14 @@ public class LeechHealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), LeechHealth);
+        EventManager.StartListening(ConstantVar.DO_DAMAGE, LeechHealth);
     }
 
     private void LeechHealth()
     {
-        var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.DoDamage.ToString());
+        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.DO_DAMAGE);
 
-        if (eventData == null)
-        {
-            return;
-        }
-
-        GameObject target = eventData[0].ToGameObject();
-
+        GameObject target = eventData.ToGameObject("target");
         if (target != this.gameObject)
         {
             return;
@@ -32,22 +26,17 @@ public class LeechHealthScript : MonoBehaviour
 
 
         //Sauf que le sender est la balle et non le personnage :/
-        var sender = EventManager.GetSender(EventsNames.ActionEvent.DoDamage.ToString());
-        if (sender == null)
-        {
-            return;
-        }
-        GameObject healTarget = (GameObject)sender;
+        GameObject healTarget = (GameObject)EventManager.GetSender(ConstantVar.DO_DAMAGE);
 
-        if (healTarget != gameObject)
+        if (healTarget == null || healTarget != gameObject)
         {
             return;
         }
 
-        float damage = eventData[1].ToFloat();
+        float damage = eventData.ToFloat("damage");
         float healthLeeched = (damage * leechPercentage) / 100f;
 
-        EventManager.SetDataGroup(EventsNames.ActionEvent.Heal.ToString(), healTarget, healthLeeched);
-        EventManager.EmitEvent(EventsNames.ActionEvent.Heal.ToString(), this.gameObject);
+        EventManager.SetDataGroup(ConstantVar.HEAL, healTarget, healthLeeched);
+        EventManager.EmitEvent(ConstantVar.HEAL, this.gameObject);
     }
 }

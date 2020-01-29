@@ -9,12 +9,12 @@ public class OwnerScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.CommonEvent.GetOwner.ToString(), GetOwner);
+		EventManager.StartListening(ConstantVar.GET_OWNER, GetOwner);
 	}
 
 	private void GetOwner()
 	{
-		var sender = EventManager.GetSender(EventsNames.CommonEvent.GetOwner.ToString());
+		var sender = EventManager.GetSender(ConstantVar.GET_OWNER);
 
 		if (sender != null)
 		{

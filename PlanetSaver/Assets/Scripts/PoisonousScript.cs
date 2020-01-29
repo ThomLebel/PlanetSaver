@@ -10,25 +10,19 @@ public class PoisonousScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), ApplyPoison);
+        EventManager.StartListening(ConstantVar.DO_DAMAGE, ApplyPoison);
     }
 
     private void ApplyPoison(){
-        GameObject sender = (GameObject)EventManager.GetSender(EventsNames.ActionEvent.DoDamage.ToString());
+        GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.DO_DAMAGE);
         if (sender != this.gameObject)
 		{
 			return;
 		}
 
-        var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.DoDamage.ToString());
+        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.DO_DAMAGE);
 
-		if (eventData == null)
-		{
-			return;
-		}
-
-		GameObject target = eventData[0].ToGameObject();
-
+		GameObject target = eventData.ToGameObject("target");
 		if (target == null)
 		{
 			return;

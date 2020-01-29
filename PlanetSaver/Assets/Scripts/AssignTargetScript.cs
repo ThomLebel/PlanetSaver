@@ -19,9 +19,12 @@ public class AssignTargetScript : MonoBehaviour
 		{
 			target = FindTarget(targetTag);
 		}
-
-		EventManager.SetData("Target", target);
-		EventManager.EmitEvent(EventsNames.CommonEvent.SetTarget.ToString(), this.gameObject);
+		if(target == null){
+			return;
+		}
+		
+		EventManager.SetData(ConstantVar.SET_TARGET, target);
+		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
 	}
 
 	public Transform FindTarget(string targetTag)

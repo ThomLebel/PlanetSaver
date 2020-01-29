@@ -10,8 +10,8 @@ public class HealthScript : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventsNames.ActionEvent.DoDamage.ToString(), TakeDamage);
-		EventManager.StartListening(EventsNames.ActionEvent.Heal.ToString(), this.gameObject, Heal);
+		EventManager.StartListening(ConstantVar.DO_DAMAGE, TakeDamage);
+		EventManager.StartListening(ConstantVar.HEAL, this.gameObject, Heal);
 	}
 
 	private void Start()
@@ -21,25 +21,20 @@ public class HealthScript : MonoBehaviour
 
 	private void TakeDamage()
 	{
-		var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.DoDamage.ToString());
+		var eventData = EventManager.GetIndexedDataGroup(ConstantVar.DO_DAMAGE);
 
-		if (eventData == null)
-		{
-			return;
-		}
-
-		GameObject target = eventData[0].ToGameObject();
+		GameObject target = eventData.ToGameObject("target");
 
 		if (target != this.gameObject)
 		{
 			return;
 		}
 
-		AdjustHealth(eventData[1].ToFloat());		
+		AdjustHealth(eventData.ToFloat("damage"));		
 	}
 
 	private void Heal(){
-		var eventData = EventManager.GetDataGroup(EventsNames.ActionEvent.Heal.ToString());
+		var eventData = EventManager.GetDataGroup(ConstantVar.HEAL);
 
 		if (eventData == null)
 		{
