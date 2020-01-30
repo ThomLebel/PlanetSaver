@@ -5,38 +5,45 @@ using TigerForge;
 
 public class LeechHealthScript : MonoBehaviour
 {
-    public float leechPercentage;
+    [Tooltip("Percentage of life leeched")]
+    public float leechPercentage = 25f;
     public float leechDuration;
 
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(ConstantVar.DO_DAMAGE, LeechHealth);
+        EventManager.StartListening(ConstantVar.TAKE_DAMAGE, LeechHealth);
+    }
+
+    void OnDisable() {
+        EventManager.StopListening(ConstantVar.TAKE_DAMAGE, LeechHealth);
+    }
+
+    void Update() {
+        if(leechDuration <= 0f){
+            Destroy(this);
+        }
+        leechDuration -= Time.deltaTime;
     }
 
     private void LeechHealth()
     {
-        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.DO_DAMAGE);
+        GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.TAKE_DAMAGE);
+        if(sender == null || sender == gameObject){
+            return;
+        }
 
-        GameObject target = eventData.ToGameObject("target");
-        if (target != this.gameObject)
+        AttackInfo attackInfo = (AttackInfo)EventManager.GetData(ConstantVar.TAKE_DAMAGE);
+        if (attackInfo.target == this.gameObject || attackInfo.initiator != this.gameObject)
         {
             return;
         }
 
-
-        //Sauf que le sender est la balle et non le personnage :/
-        GameObject healTarget = (GameObject)EventManager.GetSender(ConstantVar.DO_DAMAGE);
-
-        if (healTarget == null || healTarget != gameObject)
-        {
-            return;
-        }
-
-        float damage = eventData.ToFloat("damage");
+        float damage = attackInfo.damage;
         float healthLeeched = (damage * leechPercentage) / 100f;
 
-        EventManager.SetDataGroup(ConstantVar.HEAL, healTarget, healthLeeched);
+        EventManager.SetDataGroup(ConstantVar.HEAL, gameObject, healthLeeched);
         EventManager.EmitEvent(ConstantVar.HEAL, this.gameObject);
+        Debug.Log("we heal the player");
     }
 }

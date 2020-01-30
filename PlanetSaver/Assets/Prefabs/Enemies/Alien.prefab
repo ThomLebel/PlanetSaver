@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3059389334915287666}
   - component: {fileID: 3059389334915287667}
   - component: {fileID: 771978938}
+  - component: {fileID: -4352518896620939439}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -240,10 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6424543e6608d3a429ba2f66573bcc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDamage: -30
+  collisionDamage: 30
+  attributes: 
   targetsTag:
   - Player
   - Planet
+  initiator: {fileID: 0}
 --- !u!114 &771978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +266,19 @@ MonoBehaviour:
   - Player
   - Planet
   primaryAttack: 0
+--- !u!114 &-4352518896620939439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633f547c364a2604f999fd215b9c36ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  registeredDefensiveModifier: []
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0

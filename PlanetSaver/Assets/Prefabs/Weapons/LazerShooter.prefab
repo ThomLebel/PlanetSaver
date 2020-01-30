@@ -82,7 +82,7 @@ MonoBehaviour:
     type: 3}
   projectileSpawn: {fileID: 6092409897761012081}
   fireRate: 0.5
-  damage: -5
+  damage: 5
   nextShot: 0
 --- !u!1 &8652101917429070363
 GameObject:

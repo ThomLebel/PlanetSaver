@@ -38,15 +38,9 @@ public class WeaponManager : MonoBehaviour
 
 	private void UseWeapon()
     {
-        var sender = EventManager.GetSender(ConstantVar.USE_ATTACK);
+        GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.USE_ATTACK);
 
-        if (sender == null)
-        {
-            return;
-        }
-        GameObject go = (GameObject)sender;
-
-        if (go != gameObject)
+        if (sender == null || sender != gameObject)
         {
             return;
         }

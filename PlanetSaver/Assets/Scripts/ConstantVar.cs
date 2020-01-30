@@ -10,6 +10,7 @@
 	public const string USE_SKILL = "UseSkill";
 	public const string DO_DAMAGE = "DoDamage";
 	public const string HEAL = "Heal";
+	public const string TAKE_DAMAGE = "TAKE_DAMAGE";
 
 	//CommonEvent
 	public const string GET_OWNER = "GetOwner";
@@ -19,12 +20,13 @@
 	public const string COLLECTIBLE_PICKEDUP = "CollectiblePickedUp";
 	public const string COLLECT_COIN = "CollectCoin";
 	public const string CREATE_BULLET = "CreateBullet";
-	public const string CAN_MODIFY_ATTACK = "CanModifyAttack";
-	public const string ATTACK_MODIFIER_COUNT = "AttackModifierCount";
+	public const string DEFENSIVE_MODIFICATION = "DefensiveModification";
+	public const string REGISTER_DEFENSIVE_MODIFIER = "RegisterDefensiveModifier";
 
 	#endregion
 
-	#region "Attack types"
-		
+	#region "Attack Attributes"
+		public const string ATK_ATR_COLLISION = "collision";
+		public const string ATK_ATR_EXPLOSION = "explosion";
 	#endregion
 }

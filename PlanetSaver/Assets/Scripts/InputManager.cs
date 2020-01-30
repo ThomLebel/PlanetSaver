@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
 
 	public void ActivatePrimaryAttack(bool value)
-	{
+	{	
 		EventManager.SetData(ConstantVar.USE_ATTACK, value);
 		EventManager.EmitEvent(ConstantVar.USE_ATTACK, "tag:Player",  0f, this.gameObject);
 	}
