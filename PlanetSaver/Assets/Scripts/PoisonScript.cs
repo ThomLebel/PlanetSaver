@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class PoisonScript : MonoBehaviour
 {
+    public GameObject initiator;
+    public GameObject sender;
     public float poisonDamage;
     public float poisonDuration;
     public float poisonTick = .5f;
 
+    [SerializeField]private string attribute;
     private IEnumerator poisonCoroutine;
     private WaitForSeconds wait;
 
+    void Awake() {
+        attribute = ConstantVar.ATK_ATR_POISON;    
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +45,15 @@ public class PoisonScript : MonoBehaviour
         while(true){
             yield return wait;
 
-            EventManager.SetIndexedDataGroup(ConstantVar.DO_DAMAGE,
-					new EventManager.DataGroup{id = "target", data = this.gameObject},
-					new EventManager.DataGroup{id = "damage", data = poisonDamage}
-			);
+            AttackInfo attackInfo = new AttackInfo(
+                initiator,
+                sender,
+                gameObject,
+                poisonDamage,
+                attribute
+            );
+
+            EventManager.SetData(ConstantVar.DO_DAMAGE, attackInfo);
             EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
         }
         

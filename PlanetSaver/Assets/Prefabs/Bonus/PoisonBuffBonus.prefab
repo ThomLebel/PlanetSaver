@@ -46,4 +46,4 @@ MonoBehaviour:
   bonusName: Poison Buff
   poisonBuffDuration: 5
   poisonDuration: 5
-  poisonDamage: -2
+  poisonDamage: 2

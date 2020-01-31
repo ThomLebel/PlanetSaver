@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 public abstract class ShootProjectile : Weapon
 {
@@ -9,7 +10,17 @@ public abstract class ShootProjectile : Weapon
 	public float fireRate;
 	public float damage;
 
+    protected float initialDamage;
+    protected float initialFireRate;
+
 	[SerializeField] private float nextShot = 0f;
+
+    private void Start() {
+        initialDamage = damage;
+        initialFireRate = fireRate;
+
+        EventManager.StartListening(ConstantVar.BOOST_WEAPON, BoostWeaponStat);
+    }
 
 	private void Update()
     {
@@ -37,4 +48,5 @@ public abstract class ShootProjectile : Weapon
     }
 
     protected abstract void CreateProjectile(GameObject user);
+    protected abstract void BoostWeaponStat();
 }

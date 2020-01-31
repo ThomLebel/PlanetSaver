@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour
 		foreach (Weapon weapon in primaryWeapons)
 		{
 			weapon.targetTags = targetsTag;
+			weapon.owner = gameObject;
 		}
 	}
 
@@ -47,16 +48,4 @@ public class WeaponManager : MonoBehaviour
 
         primaryAttack = EventManager.GetBool(ConstantVar.USE_ATTACK);
     }
-
-    public void AddWeapon(string weapon)
-	{
-		/*if (primaryWeapon != null)
-		{
-			Destroy(primaryWeapon);
-		}
-		Type mType = Type.GetType(weapon);
-		Component temp = gameObject.AddComponent(mType);
-		primaryWeapon = temp as Weapon;*/
-
-	}
 }

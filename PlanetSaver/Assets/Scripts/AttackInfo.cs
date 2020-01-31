@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AttackInfo
 {
-        public int id;
         public GameObject initiator;        //Quel personnage a initié cette attaque
         public GameObject sender;           //De quel entité provient l'event de l'attaque
         public GameObject target;           //La cible de cette attaque
         public float damage;                //Combien de dégâts inflige cette attaque
         public string[] attackAttributes;   //Quels sont les attributs de cette attaque
 
-        public AttackInfo(int _id, GameObject _initiator, GameObject _sender, GameObject _target, float _damage, string _attackAttributes){
-            id = _id;
+        public AttackInfo(GameObject _initiator, GameObject _sender, GameObject _target, float _damage, string _attackAttributes){
             initiator = _initiator;
             sender = _sender;
             target = _target;

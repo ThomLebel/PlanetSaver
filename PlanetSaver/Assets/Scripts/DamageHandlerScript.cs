@@ -5,7 +5,6 @@ using TigerForge;
 
 public class DamageHandlerScript : MonoBehaviour
 {
-    private int attackReceived = 0;
     [SerializeField]private List<DefensiveModifierScript> registeredDefensiveModifier;
 
     // Start is called before the first frame update
@@ -38,22 +37,13 @@ public class DamageHandlerScript : MonoBehaviour
 
         var eventData = EventManager.GetIndexedDataGroup(ConstantVar.DO_DAMAGE);
 
-        GameObject target = eventData.ToGameObject("target");
-        if(target != gameObject){
+        AttackInfo attackInfo = (AttackInfo)EventManager.GetData(ConstantVar.DO_DAMAGE);
+
+        if(attackInfo.target != gameObject){
             return;
         }
-
-        AttackInfo attackInfo = new AttackInfo(
-            attackReceived,
-            eventData.ToGameObject("initiator"),
-            sender,
-            target,
-            eventData.ToFloat("damage"),
-            eventData.ToString("attributes")
-        );
-
-        attackReceived ++;
-
+        
+        //Pass this attack through all defensive modifier to act on it
         foreach(DefensiveModifierScript defensiveModifier in registeredDefensiveModifier){
             defensiveModifier.ModifyAttack(attackInfo);
         }

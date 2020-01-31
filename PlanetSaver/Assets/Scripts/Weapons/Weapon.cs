@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
 	public string weaponName;
 	public List<string> targetTags = new List<string>();
+	public GameObject owner;
 
 	[SerializeField] protected bool weaponActive;
 

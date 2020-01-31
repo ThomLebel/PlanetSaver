@@ -42,5 +42,6 @@ public class PoisonModificatorScript : MonoBehaviour
         PoisonousScript poisonousScript = bullet.AddComponent<PoisonousScript>();
         poisonousScript.poisonDamage = poisonDamage;
         poisonousScript.poisonDuration = poisonDuration;
+        poisonousScript.initiator = gameObject;
     }
 }

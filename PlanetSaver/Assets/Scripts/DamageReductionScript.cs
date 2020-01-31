@@ -7,14 +7,25 @@ public class DamageReductionScript : DefensiveModifierScript
 {
     [Tooltip("Percentage of damage reduction")]
     public float damageReduction = 50f;
-    public List<string> nonReductibleAttacks;
+    public float reductionDuration;
+
+    void Awake() {
+        defensiveModifier.Add(ConstantVar.ATK_ATR_POISON);    
+    }
+
+    void Update() {
+        if(reductionDuration <= 0){
+            Destroy(this);
+        }
+        reductionDuration -= Time.deltaTime;
+    }
 
     public override void ModifyAttack(AttackInfo attackInfo){
         bool reductible = true;
 
         for(int i=0; i<attackInfo.attackAttributes.Length; i++){
             string attribute = attackInfo.attackAttributes[i];
-            if(nonReductibleAttacks.Contains(attribute)){
+            if(defensiveModifier.Contains(attribute)){
                 reductible = false;
             }
         }
