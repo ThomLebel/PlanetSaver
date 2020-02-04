@@ -38,13 +38,6 @@ public class CollisionScript : MonoBehaviour
 		{
 			if (target.CompareTag(tag))
 			{
-				// EventManager.SetIndexedDataGroup(ConstantVar.DO_DAMAGE,
-				// 	new EventManager.DataGroup{id = "initiator", data = initiator},
-				// 	new EventManager.DataGroup{id = "target", data = target.gameObject},
-				// 	new EventManager.DataGroup{id = "damage", data = collisionDamage},
-				// 	new EventManager.DataGroup{id = "attributes", data = attributes}
-				// );
-
 				AttackInfo attackInfo = new AttackInfo(
 					initiator,
 					gameObject,
@@ -55,7 +48,6 @@ public class CollisionScript : MonoBehaviour
 
 				EventManager.SetData(ConstantVar.DO_DAMAGE, attackInfo);
 				EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
-				Debug.Log("We hit something");
 
 				Destroy(gameObject);
 			}

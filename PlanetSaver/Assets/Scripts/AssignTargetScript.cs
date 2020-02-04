@@ -7,10 +7,25 @@ public class AssignTargetScript : MonoBehaviour
 {
 	public string targetTag;
 	public bool findClosest;
+	public bool tauntable;
+	public bool magnetizable;
+
+	private Transform target;
 
 	private void Start()
 	{
-		Transform target = null;
+		EventManager.StartListening(ConstantVar.SET_PRIORITY_TARGET, AssignPriorityTarget);
+		EventManager.StartListening(ConstantVar.RESET_PRIORITY_TARGET, ResetPriorityTarget);
+
+		EventManager.EmitEvent(ConstantVar.FIND_PRIORITY_TARGET, gameObject);
+
+		AssignTarget();		
+	}
+
+	private void AssignTarget(){
+		if(target != null){
+			return;
+		}
 		if (findClosest)
 		{
 			target = FindClosestTarget(targetTag, transform.position);
@@ -27,7 +42,67 @@ public class AssignTargetScript : MonoBehaviour
 		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
 	}
 
-	public Transform FindTarget(string targetTag)
+	private void AssignPriorityTarget(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.SET_PRIORITY_TARGET);
+		if(sender == null || sender == gameObject){
+			return;
+		}
+
+		var eventData = EventManager.GetIndexedDataGroup(ConstantVar.SET_PRIORITY_TARGET);
+
+		string type = eventData.ToString("type");
+		Transform eventTarget = eventData.ToGameObject("target").transform; 
+		switch(type){
+			case "taunt":
+				if(tauntable){
+					target = eventTarget;
+				}
+			break;
+			case "magnet":
+				if(magnetizable){
+					target = eventTarget;
+				}
+			break;
+			default:
+				AssignTarget();
+			break;
+		}
+
+		if(target == null){
+			return;
+		}
+
+		EventManager.SetData(ConstantVar.SET_TARGET, target);
+		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
+	}
+
+	private void ResetPriorityTarget(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.RESET_PRIORITY_TARGET);
+		if(sender == null || sender == gameObject){
+			return;
+		}
+
+		string eventType = EventManager.GetString(ConstantVar.RESET_PRIORITY_TARGET);
+		switch(eventType){
+			case "taunt":
+				if(!tauntable){
+					return;
+				}
+			break;
+			case "magnet":
+				if(!magnetizable){
+					return;
+				}
+			break;
+			default:
+				return;
+		}
+
+		target = null;
+		AssignTarget();
+	}
+
+	private Transform FindTarget(string targetTag)
 	{
 		GameObject[] targetList = FindTargetArray(targetTag);
 
@@ -39,7 +114,7 @@ public class AssignTargetScript : MonoBehaviour
 		return null;
 	}
 
-	public Transform FindClosestTarget(string targetTag, Vector3 position)
+	private Transform FindClosestTarget(string targetTag, Vector3 position)
 	{
 		GameObject[] targetList = FindTargetArray(targetTag);
 

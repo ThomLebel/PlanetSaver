@@ -15,6 +15,9 @@
 		public const string COLLECT_COIN = "CollectCoin";
 		public const string CREATE_BULLET = "CreateBullet";
 		public const string BOOST_WEAPON = "BoostWeapon";
+		public const string FIND_PRIORITY_TARGET = "FindPriorityTarget";
+		public const string SET_PRIORITY_TARGET = "SetPriorityTarget";
+		public const string RESET_PRIORITY_TARGET = "ResetPriorityTarget";
 
 		//CommonEvent
 		public const string GET_OWNER = "GetOwner";
@@ -30,5 +33,6 @@
 		public const string ATK_ATR_COLLISION = "Collision";
 		public const string ATK_ATR_EXPLOSION = "Explosion";
 		public const string ATK_ATR_POISON = "Poison";
+		public const string ATK_ATR_PIERCING = "Piercing";
 	#endregion
 }

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3258886663331843464}
   - component: {fileID: 3258886663331843465}
   - component: {fileID: 3258886663331843470}
-  - component: {fileID: 3258886663331843477}
   - component: {fileID: 1433966582021029218}
+  - component: {fileID: -3596970274005166139}
   m_Layer: 0
   m_Name: silverCoin
   m_TagString: Collectible
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Planet
   findClosest: 0
+  tauntable: 0
+  magnetizable: 1
 --- !u!114 &3258886663331843470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,22 +134,6 @@ MonoBehaviour:
   speed: 1
   target: {fileID: 0}
   destinationReach: 0
---- !u!114 &3258886663331843477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258886663331843471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09737567a2d1954b9c4b3df1e635e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbitDistance: 15
-  velocity: 3
-  isOrbiting: 0
-  target: {fileID: 0}
 --- !u!114 &1433966582021029218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 5
+--- !u!114 &-3596970274005166139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258886663331843471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6424543e6608d3a429ba2f66573bcc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDamage: 0
+  attributes: 
+  targetsTag:
+  - Planet
+  initiator: {fileID: 0}

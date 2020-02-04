@@ -12,9 +12,16 @@ public class TempShieldBonus : TemporaryBonusScript
             return;
         }
 
-        GameObject shield = Instantiate(shieldPrefab, player.transform.position, player.transform.rotation);
-        shield.transform.SetParent(player.transform);
-        LifeSpanScript lifeSpan = shield.AddComponent<LifeSpanScript>();
-        lifeSpan.lifetime = shieldLifeTime;
+        GameObject shield = player.transform.Find("shield").gameObject;
+        LifeSpanScript lifeSpan = null;
+        if(shield == null){
+            shield = Instantiate(shieldPrefab, player.transform.position, player.transform.rotation);
+            shield.transform.SetParent(player.transform);
+            lifeSpan = shield.AddComponent<LifeSpanScript>();
+        }else{
+            lifeSpan = shield.GetComponent<LifeSpanScript>();
+        }
+
+        lifeSpan.lifetime += shieldLifeTime;
     }
 }

@@ -17,11 +17,6 @@ public class MoveToTargetScript : MonoBehaviour
 		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
 	}
 
-	private void OnDisable()
-	{
-		//EventManager.StopListening(ConstantVar.DESTINATION_REACH, DestinationReach);
-	}
-
 	// Update is called once per frame
 	void Update()
     {
@@ -38,7 +33,7 @@ public class MoveToTargetScript : MonoBehaviour
 	{
 		GameObject sender =(GameObject) EventManager.GetSender(ConstantVar.SET_TARGET);
 
-		if (sender != null || sender != gameObject)
+		if (sender != null && sender == gameObject)
 		{
 			target = (Transform)EventManager.GetData(ConstantVar.SET_TARGET);
 		}
@@ -46,17 +41,10 @@ public class MoveToTargetScript : MonoBehaviour
 
 	private void DestinationReach()
 	{
-		var sender = EventManager.GetSender(ConstantVar.DESTINATION_REACH);
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.DESTINATION_REACH);
 		
-		if (sender != null)
+		if (sender != null && sender == gameObject)
 		{
-			GameObject go = (GameObject)sender;
-
-			if (go != gameObject)
-			{
-				return;
-			}
-
 			destinationReach = true;
 		}
 	}

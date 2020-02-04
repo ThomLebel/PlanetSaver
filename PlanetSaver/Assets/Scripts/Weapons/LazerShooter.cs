@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 public class LazerShooter : ShootProjectile
 {
 
     protected override void CreateProjectile(GameObject user){
         GameObject shot = Instantiate(projectile, projectileSpawn.position, user.transform.rotation);
+
+        EventManager.SetDataGroup(ConstantVar.CREATE_BULLET, user, shot);
+        EventManager.EmitEvent(ConstantVar.CREATE_BULLET, this.gameObject);
+
         shot.tag = gameObject.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
         collisionScript.targetsTag = targetTags;
         collisionScript.collisionDamage = damage;
-    }
-    protected override void BoostWeaponStat()
-    {
-        throw new System.NotImplementedException();
     }
 }
