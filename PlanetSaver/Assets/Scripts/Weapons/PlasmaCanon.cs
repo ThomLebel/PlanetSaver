@@ -5,6 +5,7 @@ using TigerForge;
 
 public class PlasmaCanon : ShootProjectile
 {
+    public float explosionRadius;
 
     protected override void CreateProjectile(GameObject user){
         GameObject shot = Instantiate(projectile, projectileSpawn.position, user.transform.rotation);
@@ -15,6 +16,11 @@ public class PlasmaCanon : ShootProjectile
         shot.tag = gameObject.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
         collisionScript.targetsTag = targetTags;
-        collisionScript.collisionDamage = damage;
+        
+        ExplodeOnCollision explodeOnCollision = shot.AddComponent<ExplodeOnCollision>();
+        explodeOnCollision.initiator = user;
+        explodeOnCollision.explosionDamage = damage;
+        explodeOnCollision.explosionRadius = explosionRadius;
+        explodeOnCollision.targetsTag = targetTags;
     }
 }

@@ -14,9 +14,11 @@ public class RocketLauncher : ShootProjectile
 
         shot.tag = gameObject.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
-        collisionScript.initiator = user;
-        collisionScript.attributes += ConstantVar.ATK_ATR_EXPLOSION+",";
         collisionScript.targetsTag = targetTags;
-        collisionScript.collisionDamage = damage;
+
+        DamageOnCollision damageOnCollision = shot.AddComponent<DamageOnCollision>();
+        damageOnCollision.initiator = user;
+        damageOnCollision.collisionDamage = damage;
+        damageOnCollision.targetsTag = targetTags;
     }
 }

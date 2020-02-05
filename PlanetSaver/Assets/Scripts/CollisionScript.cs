@@ -5,17 +5,7 @@ using TigerForge;
 
 public class CollisionScript : MonoBehaviour
 {
-	public float collisionDamage;
-	public string attributes;
 	public List<string> targetsTag;
-	public GameObject initiator;
-
-	void Awake() {
-		if(initiator == null){
-			initiator = gameObject;
-		}
-		attributes += ConstantVar.ATK_ATR_COLLISION+",";
-	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -38,18 +28,8 @@ public class CollisionScript : MonoBehaviour
 		{
 			if (target.CompareTag(tag))
 			{
-				AttackInfo attackInfo = new AttackInfo(
-					initiator,
-					gameObject,
-					target.gameObject,
-					collisionDamage,
-					attributes
-				);
-
-				EventManager.SetData(ConstantVar.DO_DAMAGE, attackInfo);
-				EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
-
-				Destroy(gameObject);
+				EventManager.SetData(ConstantVar.COLLIDE_WITH_SOMETHING, target.gameObject);
+				EventManager.EmitEvent(ConstantVar.COLLIDE_WITH_SOMETHING, this.gameObject);
 			}
 		}
 	}

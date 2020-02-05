@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9073302798991074829}
-  - component: {fileID: 6899080641441492395}
+  - component: {fileID: 2925424490058369935}
   m_Layer: 0
   m_Name: PlasmaCanon
   m_TagString: Untagged
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7106090599980976799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.182, y: 0.073, z: -2.1733398}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 514432097964579740}
@@ -63,7 +63,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6899080641441492395
+--- !u!114 &2925424490058369935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,18 +72,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7106090599980976799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf3d0d5bd08710f4b9a7d312480c176c, type: 3}
+  m_Script: {fileID: 11500000, guid: 36633e19a3d0589479e77fd5a5534137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: PlasmaCanon
   targetTags: []
+  owner: {fileID: 0}
   weaponActive: 0
   projectile: {fileID: 1249646029218653551, guid: 25db2b390757f734b8caf3b0b07b25f9,
     type: 3}
   projectileSpawn: {fileID: 6092409897761012081}
-  fireRate: 0.5
+  fireRate: 1
   damage: 7
   nextShot: 0
+  explosionRadius: 1.5
 --- !u!1 &8652101917429070363
 GameObject:
   m_ObjectHideFlags: 0
