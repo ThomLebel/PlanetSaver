@@ -43,7 +43,5 @@ public class ExplodeOnCollision : EffectOnCollision
             EventManager.SetData(ConstantVar.DO_DAMAGE, attackInfo);
             EventManager.EmitEvent(ConstantVar.DO_DAMAGE, this.gameObject);
         }
-
-        // Destroy(gameObject);
     }
 }

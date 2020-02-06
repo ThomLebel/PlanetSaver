@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1026434356694775679}
-  - component: {fileID: 1773059554903782996}
+  - component: {fileID: -2785297706631117884}
   m_Layer: 0
   m_Name: PoisonBuffBonus
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1773059554903782996
+--- !u!114 &-2785297706631117884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3849366574408024841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6729a6fb19d24e845b5cdad143105814, type: 3}
+  m_Script: {fileID: 11500000, guid: b96077a6b0e1b974a81c0a5283d972de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusName: Poison Buff
-  poisonBuffDuration: 5
-  poisonDuration: 5
-  poisonDamage: 2
+  bonusName: Damage Over Time Buff
+  dotBuffDuration: 5
+  dotDuration: 5
+  dotDamage: 2
+  attribute: Poison

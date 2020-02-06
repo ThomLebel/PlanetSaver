@@ -42,10 +42,11 @@ public class MoveToTargetScript : MonoBehaviour
 	private void DestinationReach()
 	{
 		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.DESTINATION_REACH);
-		
-		if (sender != null && sender == gameObject)
+		if (sender == null || sender != gameObject)
 		{
-			destinationReach = true;
+			return;
 		}
+
+		destinationReach = EventManager.GetBool(ConstantVar.DESTINATION_REACH);
 	}
 }

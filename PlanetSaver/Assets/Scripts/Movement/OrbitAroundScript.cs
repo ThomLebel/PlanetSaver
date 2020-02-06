@@ -8,6 +8,7 @@ public class OrbitAroundScript : MonoBehaviour
 {
 	public float orbitDistance;
 	public float velocity = 20f;
+    [SerializeField] private float distanceOffset = 0.5f;
 
 	private float targetDistance;
 	[SerializeField] private bool isOrbiting;
@@ -26,21 +27,21 @@ public class OrbitAroundScript : MonoBehaviour
         }
         targetDistance = (target.position - transform.position).sqrMagnitude;
 
-        if (targetDistance > orbitDistance || isOrbiting)
-        {
-            return;
+        if(targetDistance <= orbitDistance && !isOrbiting){
+            isOrbiting = true;
+            EventManager.SetData(ConstantVar.DESTINATION_REACH, isOrbiting);
+            EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, this.gameObject);
         }
-        isOrbiting = true;
-        EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, this.gameObject);
-        
-        EventManager.SetData(ConstantVar.USE_ATTACK, true);
-        EventManager.EmitEvent(ConstantVar.USE_ATTACK, "tag:Enemy", 0f, this.gameObject);
+        if(targetDistance > orbitDistance + distanceOffset && isOrbiting){
+            isOrbiting = false;
+            EventManager.SetData(ConstantVar.DESTINATION_REACH, isOrbiting);
+            EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, this.gameObject);
+        }
     }
 
     private void SetTarget()
     {
         GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.SET_TARGET);
-
         if (sender == null || sender != gameObject)
         {
             return;
