@@ -15,8 +15,7 @@ public class TempShieldBonus : TemporaryBonusScript
         GameObject shield = player.transform.Find("shield").gameObject;
         LifeSpanScript lifeSpan = null;
         if(shield == null){
-            shield = Instantiate(shieldPrefab, player.transform.position, player.transform.rotation);
-            shield.transform.SetParent(player.transform);
+            shield = Instantiate(shieldPrefab, player.transform.position, player.transform.rotation, player.transform);
             lifeSpan = shield.AddComponent<LifeSpanScript>();
         }else{
             lifeSpan = shield.GetComponent<LifeSpanScript>();

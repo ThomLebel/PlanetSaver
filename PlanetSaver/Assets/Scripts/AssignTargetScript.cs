@@ -22,6 +22,13 @@ public class AssignTargetScript : MonoBehaviour
 		AssignTarget();		
 	}
 
+	private void Update() {
+		if(target != null){
+			return;
+		}
+		AssignTarget();
+	}
+
 	private void AssignTarget(){
 		if(target != null){
 			return;
