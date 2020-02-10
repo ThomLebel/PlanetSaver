@@ -8,7 +8,7 @@ public class Flock : MonoBehaviour
     List<FlockAgent> agents = new List<FlockAgent>();
     public FlockBehaviour behaviour;
 
-    [Range(10, 500)]
+    [Range(2, 500)]
     public int startingCount = 250;
     const float AgentDensity = 0.08f;
 
@@ -42,6 +42,7 @@ public class Flock : MonoBehaviour
                 transform
             );
             newAgent.name = "Agent"+i;
+            newAgent.Initialize(this);
             agents.Add(newAgent);
         }
     }
@@ -51,15 +52,13 @@ public class Flock : MonoBehaviour
     {
         foreach(FlockAgent agent in agents){
             List<Transform> context = GetNearbyObjects(agent);
-            //For demo only
-            // agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
             
-            // Vector2 move = behaviour.CalculateMove(agent, context, this);
-            // move *= driveFactor;
-            // if(move.sqrMagnitude > squareMaxSpeed){
-            //     move = move.normalized * maxSpeed;
-            // }
-            // agent.Move(move);
+            Vector2 move = behaviour.CalculateMove(agent, context, this);
+            move *= driveFactor;
+            if(move.sqrMagnitude > squareMaxSpeed){
+                move = move.normalized * maxSpeed;
+            }
+            agent.Move(move);
         }
     }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334879396106}
   - component: {fileID: 3059389334879396117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wingLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingOrder: -5
   m_Sprite: {fileID: -3546913076723736083, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: -2043652429207281186}
   - component: {fileID: -623983877521447477}
   - component: {fileID: -768956073622295783}
-  m_Layer: 0
-  m_Name: AlienFlock
+  m_Layer: 10
+  m_Name: FlockAgent_A
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334928784986}
   - component: {fileID: 3059389334928784933}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: reactorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ SpriteRenderer:
   m_SortingOrder: -20
   m_Sprite: {fileID: -4729519858692970850, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -429,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334980651544}
   - component: {fileID: 3059389334980651547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_SortingOrder: -10
   m_Sprite: {fileID: -6089944151652797636, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -511,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389335161707915}
   - component: {fileID: 3059389335161707914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wingRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ SpriteRenderer:
   m_SortingOrder: -5
   m_Sprite: {fileID: -3546913076723736083, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -593,7 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389335707030146}
   - component: {fileID: 3059389335707030157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4120253061267015763, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -674,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3059389336124126767}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336328096435}
   - component: {fileID: 3059389336328096434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: reactorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ SpriteRenderer:
   m_SortingOrder: -20
   m_Sprite: {fileID: -4729519858692970850, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 1
   m_FlipY: 1
   m_DrawMode: 0
@@ -795,7 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336457353341}
   - component: {fileID: 3059389336457353340}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: windowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: -9092191432327946296, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336791649714}
   - component: {fileID: 3059389336791649725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: windowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +939,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: -9092191432327946296, guid: 6600429ad3e8867469de328d36fa7d27,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21161066, g: 0.9150943, b: 0.12949446, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -956,6 +956,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3059389334915287673}
     m_Modifications:
+    - target: {fileID: 5061613754383644036, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
@@ -980,6 +985,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RocketLauncherRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652101917429070363, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9073302798991074829, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1063,6 +1078,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3059389334915287673}
     m_Modifications:
+    - target: {fileID: 5061613754383644036, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
@@ -1102,6 +1122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RocketLauncherLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652101917429070363, guid: bc3ce542b85bbbe4498a1690cc60ee35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9073302798991074829, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
