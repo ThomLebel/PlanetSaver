@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(MovementScript))]
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    MovementScript movementScript;
+    // public float speed;
+
+    private void Awake() {
+        movementScript = GetComponent<MovementScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        movementScript.Move(transform.up);
     }
 }

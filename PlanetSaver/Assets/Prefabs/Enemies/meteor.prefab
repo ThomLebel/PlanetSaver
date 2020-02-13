@@ -19,7 +19,9 @@ GameObject:
   - component: {fileID: -2993634847709050617}
   - component: {fileID: -2093355637432151804}
   - component: {fileID: 6108387498144245676}
-  m_Layer: 0
+  - component: {fileID: -1405701105698970047}
+  - component: {fileID: -7029976676632510342}
+  m_Layer: 10
   m_Name: meteor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -101,7 +103,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -230,3 +232,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1405701105698970047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873740251047452227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8d1bf51bae48e4a8649fc592ed2f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+--- !u!114 &-7029976676632510342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873740251047452227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 5186384981213117068
+  updateError: 1
+  checkTime: 0.1

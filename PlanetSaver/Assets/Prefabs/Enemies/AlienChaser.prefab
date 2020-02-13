@@ -102,6 +102,8 @@ GameObject:
   - component: {fileID: -5934858170558281622}
   - component: {fileID: -2043652429207281186}
   - component: {fileID: -623983877521447477}
+  - component: {fileID: -4340084863465037196}
+  - component: {fileID: 7852506601416617808}
   m_Layer: 10
   m_Name: AlienChaser
   m_TagString: Enemy
@@ -323,6 +325,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4340084863465037196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4f808cca86a4e48a59a2c26ae30696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 1792
+  neighboorRadius: 2
+  avoidanceRadiusMultiplier: 0.5
+--- !u!114 &7852506601416617808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8d1bf51bae48e4a8649fc592ed2f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,18 @@ using UnityEngine;
 using TigerForge;
 
 [RequireComponent(typeof(AssignTargetScript))]
+[RequireComponent(typeof(MovementScript))]
 public class MoveToTargetScript : MonoBehaviour
 {
 	public float speed;
 
 	[SerializeField] private Transform target;
 	[SerializeField] private bool destinationReach;
+	MovementScript movementScript;
 
 	private void Awake()
 	{
+		movementScript = GetComponent<MovementScript>();
 		EventManager.StartListening(ConstantVar.DESTINATION_REACH, this.gameObject, DestinationReach);
 		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
 	}
@@ -24,9 +27,12 @@ public class MoveToTargetScript : MonoBehaviour
 		{
 			return;
 		}
-		float step = speed * Time.deltaTime;
-		transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+		// float step = speed * Time.deltaTime;
+		// transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+		Vector2 velocity = (target.position - transform.position).normalized;
+		// transform.position += velocity * speed * Time.deltaTime;
 		transform.up = target.position - transform.position;
+		movementScript.Move(velocity);
 	}
 
 	private void SetTarget()

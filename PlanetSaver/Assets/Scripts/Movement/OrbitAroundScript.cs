@@ -4,6 +4,7 @@ using UnityEngine;
 using TigerForge;
 
 [RequireComponent(typeof(AssignTargetScript))]
+[RequireComponent(typeof(MovementScript))]
 public class OrbitAroundScript : MonoBehaviour
 {
 	public float orbitDistance;
