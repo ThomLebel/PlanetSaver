@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: -2093355637432151804}
   - component: {fileID: 6108387498144245676}
   - component: {fileID: -1405701105698970047}
-  - component: {fileID: -7029976676632510342}
   m_Layer: 10
   m_Name: meteor
   m_TagString: Enemy
@@ -245,19 +244,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
---- !u!114 &-7029976676632510342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873740251047452227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 5186384981213117068
-  updateError: 1
-  checkTime: 0.1
