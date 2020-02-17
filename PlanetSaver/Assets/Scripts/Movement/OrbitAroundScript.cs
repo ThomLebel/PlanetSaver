@@ -56,8 +56,21 @@ public class OrbitAroundScript : MonoBehaviour
     {
         if (isOrbiting)
         {
-            transform.RotateAround(target.localPosition, Vector3.back, Time.deltaTime * velocity);
-            transform.up = target.position - transform.position;
+            //transform.RotateAround(target.localPosition, Vector3.back, Time.deltaTime * velocity);
+            RotateAroundPoint(target.localPosition, Vector3.back, Time.deltaTime * velocity);
+            // transform.up = target.position - transform.position;
         }
+    }
+
+    void RotateAroundPoint(Vector3 center, Vector3 axis, float angle){
+        Vector3 pos = this.transform.position;
+        Quaternion rot = Quaternion.AngleAxis(angle, axis); // get the desired rotation
+        Vector3 dir = pos - center; // find current direction relative to center
+        dir = rot * dir; // rotate the direction
+        this.transform.position = center + dir; // define new position
+        
+        // rotate object to keep looking at the center:
+        Quaternion myRot = transform.rotation;
+        transform.rotation *= Quaternion.Inverse(myRot) * rot * myRot;
     }
 }
