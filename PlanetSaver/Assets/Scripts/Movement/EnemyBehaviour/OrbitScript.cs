@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Orbit")]
+[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Orbit")]
 public class OrbitScript : EnemyBehaviour
 {
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)

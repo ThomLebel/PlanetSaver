@@ -93,8 +93,6 @@ GameObject:
   - component: {fileID: 3059389334915287678}
   - component: {fileID: 3059389334915287679}
   - component: {fileID: 3059389334915287676}
-  - component: {fileID: 3059389334915287677}
-  - component: {fileID: 3059389334915287672}
   - component: {fileID: 3059389334915287666}
   - component: {fileID: 3059389334915287667}
   - component: {fileID: 771978938}
@@ -102,9 +100,8 @@ GameObject:
   - component: {fileID: -5934858170558281622}
   - component: {fileID: -2043652429207281186}
   - component: {fileID: -623983877521447477}
-  - component: {fileID: -4340084863465037196}
-  - component: {fileID: 7852506601416617808}
   - component: {fileID: 7446587523798198744}
+  - component: {fileID: 6445438865855692286}
   m_Layer: 10
   m_Name: AlienChaser_newMoveSystem
   m_TagString: Enemy
@@ -190,40 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   findClosest: 1
-  tauntable: 1
+  tauntable: 0
   magnetizable: 0
---- !u!114 &3059389334915287677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  target: {fileID: 0}
-  destinationReach: 0
---- !u!114 &3059389334915287672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09737567a2d1954b9c4b3df1e635e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbitDistance: 30
-  velocity: 15
-  distanceOffset: 0.5
-  isOrbiting: 0
-  target: {fileID: 0}
 --- !u!114 &3059389334915287666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,36 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4340084863465037196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4f808cca86a4e48a59a2c26ae30696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 1792
-  neighboorRadius: 2
-  avoidanceRadiusMultiplier: 0.5
---- !u!114 &7852506601416617808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8d1bf51bae48e4a8649fc592ed2f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!114 &7446587523798198744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,19 +304,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviours:
-  - behaviour: {fileID: 0}
-    weight: 0
-  - behaviour: {fileID: 0}
-    weight: 0
-  - behaviour: {fileID: 0}
-    weight: 0
-  - behaviour: {fileID: 0}
-    weight: 0
-  speed: 0
+  - behaviour: {fileID: 11400000, guid: de371e98e55d0fa4f881fba047366e75, type: 2}
+    weight: 1
+  - behaviour: {fileID: 11400000, guid: 7939a659c02e0e74f814aa371d0591d5, type: 2}
+    weight: 10
+  - behaviour: {fileID: 11400000, guid: f5e60cb10d706bd4198ddbd9a07a2a91, type: 2}
+    weight: 2
+  - behaviour: {fileID: 11400000, guid: 46c0899ebe0bc1d4586e0c272b2609dc, type: 2}
+    weight: 4
+  speed: 3
   driveFactor: 10
   neighboorRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
   target: {fileID: 0}
+--- !u!114 &6445438865855692286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e968f2b59d77514aa8f69aba2aa7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootChance: 25
+  maxObjectLooted: 3
+  forceModifier: 25
+  loots:
+  - loot: {fileID: 8820843103745819951, guid: d338894f8300cc745819cc5a0b8bb4be, type: 3}
+    weight: 80
+  - loot: {fileID: 3258886663331843471, guid: 31b5015176319304782775434b0b450f, type: 3}
+    weight: 40
+  - loot: {fileID: 8447103715262046117, guid: b2983d3d6e09f9f439607d7d490cacbf, type: 3}
+    weight: 10
+  - loot: {fileID: 1547058686540284891, guid: 61a4234c7fb62d04a9fe527c03d7a0b4, type: 3}
+    weight: 50
+  - loot: {fileID: 1547058686540284891, guid: 52359fd9f6a3ae84981182adb3798122, type: 3}
+    weight: 30
+  - loot: {fileID: 1547058686540284891, guid: 34243abe25bf3094c97aaa3884e91831, type: 3}
+    weight: 20
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,16 +990,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
@@ -1154,26 +1107,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: nextShot
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: nextShot
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}

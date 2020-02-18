@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 8873740251047452229}
   - component: {fileID: 8873740251047452226}
   - component: {fileID: -5875196179884439822}
-  - component: {fileID: 8873740251047452230}
   - component: {fileID: 8873740251047452231}
   - component: {fileID: 1559896276}
   - component: {fileID: -5645764920907897017}
   - component: {fileID: -2993634847709050617}
   - component: {fileID: -2093355637432151804}
   - component: {fileID: 6108387498144245676}
-  - component: {fileID: -1405701105698970047}
+  - component: {fileID: -1072673643513133223}
+  - component: {fileID: 5015964533549892594}
   m_Layer: 10
   m_Name: meteor
   m_TagString: Enemy
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -129,21 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8873740251047452230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873740251047452227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  target: {fileID: 0}
-  destinationReach: 0
 --- !u!114 &8873740251047452231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1405701105698970047
+--- !u!114 &-1072673643513133223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +225,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 8873740251047452227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8d1bf51bae48e4a8649fc592ed2f61, type: 3}
+  m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behaviours:
+  - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
+    weight: 1
   speed: 3
+  driveFactor: 10
+  neighboorRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
+  target: {fileID: 0}
+--- !u!114 &5015964533549892594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873740251047452227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e968f2b59d77514aa8f69aba2aa7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootChance: 25
+  maxObjectLooted: 2
+  forceModifier: 25
+  loots:
+  - loot: {fileID: 8820843103745819951, guid: d338894f8300cc745819cc5a0b8bb4be, type: 3}
+    weight: 80
+  - loot: {fileID: 3258886663331843471, guid: 31b5015176319304782775434b0b450f, type: 3}
+    weight: 20
+  - loot: {fileID: 8447103715262046117, guid: b2983d3d6e09f9f439607d7d490cacbf, type: 3}
+    weight: 2
+  - loot: {fileID: 1547058686540284891, guid: 34243abe25bf3094c97aaa3884e91831, type: 3}
+    weight: 5

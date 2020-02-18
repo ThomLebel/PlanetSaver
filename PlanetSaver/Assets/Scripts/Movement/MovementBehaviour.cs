@@ -5,7 +5,6 @@ using UnityEngine;
 using TigerForge;
 
 [RequireComponent(typeof(AssignTargetScript))]
-[RequireComponent(typeof(MovementScript))]
 public class MovementBehaviour : MonoBehaviour
 {
     public Behaviour[] behaviours;
@@ -24,12 +23,10 @@ public class MovementBehaviour : MonoBehaviour
 
     Collider2D ownCollider;
     [SerializeField] private Transform target;
-    MovementScript movementScript;
 
 	private void Awake()
 	{
         ownCollider = GetComponent<Collider2D>();
-		movementScript = GetComponent<MovementScript>();
 		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
 	}
 
@@ -45,9 +42,8 @@ public class MovementBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 move = CalculateMove();
-        // movementScript.Move(move);
+        
         transform.position += (Vector3)move * Time.deltaTime;
-        // transform.up = move;
         transform.up = target.position - transform.position;
     }
 
@@ -59,7 +55,7 @@ public class MovementBehaviour : MonoBehaviour
         for(int i=0; i<behaviours.Length; i++){
             EnemyBehaviour behaviour = behaviours[i].behaviour;
             float weight = behaviours[i].weight;
-            //Vector2 partialMove = Vector2.zero;
+
             Vector2 partialMove = behaviour.CalculateMove(transform, context, target, this) * weight;
             
             if(partialMove != Vector2.zero){

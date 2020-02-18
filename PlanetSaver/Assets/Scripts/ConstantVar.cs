@@ -19,14 +19,12 @@
 		public const string SET_PRIORITY_TARGET = "SetPriorityTarget";
 		public const string RESET_PRIORITY_TARGET = "ResetPriorityTarget";
 		public const string COLLIDE_WITH_SOMETHING = "CollideWithSomething";
-		public const string MOVE_TOWARD_TARGET = "MoveTowardTarget";
 
 		//CommonEvent
 		public const string GET_OWNER = "GetOwner";
 		public const string SET_TARGET = "SetTarget";
 		public const string ENEMY_SPAWNED = "EnemySpawned";
 		public const string STOP_SPAWNING = "StopSpawning";
-		public const string DEFENSIVE_MODIFICATION = "DefensiveModification";
 		public const string REGISTER_DEFENSIVE_MODIFIER = "RegisterDefensiveModifier";
 
 	#endregion

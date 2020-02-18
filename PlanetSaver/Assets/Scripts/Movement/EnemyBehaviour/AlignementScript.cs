@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Alignement")]
+[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Alignement")]
 public class AlignementScript : FilteredEnemyBehaviour
 {
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)
     {
         //if no neighboors, maintain current alignement
         if(context.Count == 0){
-            return agent.transform.up;
+            return Vector2.zero;
         }
 
         //add all points together and average

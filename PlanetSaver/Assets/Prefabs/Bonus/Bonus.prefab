@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 1547058686540284892}
   - component: {fileID: 1547058686540284893}
   - component: {fileID: -9013592123531266636}
-  - component: {fileID: 3314555350619524968}
   - component: {fileID: 8086399354074936291}
   - component: {fileID: -6223334212685793716}
   - component: {fileID: 4793208556170839440}
+  - component: {fileID: -6159902386563325727}
+  - component: {fileID: -4788086582452425295}
   m_Layer: 0
   m_Name: Bonus
   m_TagString: Collectible
@@ -120,21 +121,6 @@ MonoBehaviour:
   findClosest: 0
   tauntable: 0
   magnetizable: 1
---- !u!114 &3314555350619524968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547058686540284891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  target: {fileID: 0}
-  destinationReach: 0
 --- !u!114 &8086399354074936291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +134,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusList:
-  - {fileID: 2815595311725861554, guid: 559ebb04f13461c4fa1105d6f230e453, type: 3}
+  - bonus: {fileID: 869898438265342406, guid: 8dc7cc035e6b19a45b50c9611931bb80, type: 3}
+    weight: 90
+  - bonus: {fileID: 4300866156824869951, guid: da84a0a3c8873e2498522674d2c96164, type: 3}
+    weight: 40
+  - bonus: {fileID: 1911841729961982680, guid: e5913526b4278354288723ff0d4b3a79, type: 3}
+    weight: 50
+  - bonus: {fileID: 982495955575767886, guid: 85114869c1648f749804de26fca513a5, type: 3}
+    weight: 70
+  - bonus: {fileID: 4845986725480846914, guid: b1ff55ac33f5aa649a242a3cc8e1e8e3, type: 3}
+    weight: 80
+  - bonus: {fileID: 4013674810295184695, guid: 347c03e97533ddc4c8ba3be1ad7469fc, type: 3}
+    weight: 10
+  - bonus: {fileID: 3125259446345409398, guid: cda85f61fd2862c41917771d75768bc7, type: 3}
+    weight: 20
+  - bonus: {fileID: -2785297706631117884, guid: e83ce4b86d94b9c4fbbb514ecf409249,
+      type: 3}
+    weight: 30
+  - bonus: {fileID: 2815595311725861554, guid: 559ebb04f13461c4fa1105d6f230e453, type: 3}
+    weight: 60
 --- !u!114 &-6223334212685793716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +179,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-6159902386563325727
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547058686540284891}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 10
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-4788086582452425295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547058686540284891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviours:
+  - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
+    weight: 1
+  speed: 1
+  driveFactor: 10
+  neighboorRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
+  target: {fileID: 0}

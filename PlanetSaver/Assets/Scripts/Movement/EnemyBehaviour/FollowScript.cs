@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Follow")]
+[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Follow")]
 public class FollowScript : EnemyBehaviour
 {
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)

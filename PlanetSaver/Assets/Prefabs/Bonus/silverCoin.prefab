@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 3258886663331843467}
   - component: {fileID: 3258886663331843464}
   - component: {fileID: 3258886663331843465}
-  - component: {fileID: 3258886663331843470}
   - component: {fileID: 1433966582021029218}
   - component: {fileID: -3596970274005166139}
   - component: {fileID: -173171437649556079}
+  - component: {fileID: 543821949373954000}
+  - component: {fileID: -493489909426714960}
   m_Layer: 0
   m_Name: silverCoin
   m_TagString: Collectible
@@ -120,21 +121,6 @@ MonoBehaviour:
   findClosest: 0
   tauntable: 0
   magnetizable: 1
---- !u!114 &3258886663331843470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258886663331843471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  target: {fileID: 0}
-  destinationReach: 0
 --- !u!114 &1433966582021029218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +160,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &543821949373954000
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258886663331843471}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 10
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-493489909426714960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258886663331843471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviours:
+  - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
+    weight: 1
+  speed: 1
+  driveFactor: 10
+  neighboorRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
+  target: {fileID: 0}

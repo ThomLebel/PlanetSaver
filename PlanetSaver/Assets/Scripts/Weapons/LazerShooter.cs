@@ -20,5 +20,6 @@ public class LazerShooter : ShootProjectile
         damageOnCollision.initiator = user;
         damageOnCollision.collisionDamage = damage;
         damageOnCollision.targetsTag = targetTags;
+        damageOnCollision.attributes += ConstantVar.ATK_ATR_PIERCING+",";
     }
 }

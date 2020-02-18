@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Avoidance")]
+[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Avoidance")]
 public class AvoidanceScript : FilteredEnemyBehaviour
 {
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)
