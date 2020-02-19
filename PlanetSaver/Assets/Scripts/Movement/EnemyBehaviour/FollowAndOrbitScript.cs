@@ -11,9 +11,6 @@ public class FollowAndOrbitScript : EnemyBehaviour
     [Tooltip("distance offset needed to stop orbiting and resume following")]
     public float orbitDistanceOffset = 0.5f;
 
-    bool isOrbiting;
-    bool repositioning;
-
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)
     {
         Vector2 move = Vector2.zero;
@@ -23,16 +20,12 @@ public class FollowAndOrbitScript : EnemyBehaviour
 
         float targetDistance = (target.position - agent.position).sqrMagnitude;
 
-        if((targetDistance > orbitDistance && !isOrbiting) || (targetDistance >= orbitDistance + orbitDistanceOffset && isOrbiting)){
-            isOrbiting = false;
+        if(targetDistance > orbitDistance + orbitDistanceOffset){
             move = follow.CalculateMove(agent, context, target, behaviour);
-        }
-        if((targetDistance <= orbitDistance && targetDistance >= orbitDistance - orbitDistanceOffset) || isOrbiting){
-            isOrbiting = true;
-            move = orbit.CalculateMove(agent, context, target, behaviour); 
-        }
-        if(targetDistance < orbitDistance - orbitDistanceOffset && isOrbiting){
-            move += (Vector2)(agent.position - target.position).normalized * 0.5f;
+        }else if(targetDistance < orbitDistance - orbitDistanceOffset){
+            move = (Vector2)(agent.position - target.position).normalized * 0.5f;
+        }else{
+            move = orbit.CalculateMove(agent, context, target, behaviour);
         }
 
         return move;

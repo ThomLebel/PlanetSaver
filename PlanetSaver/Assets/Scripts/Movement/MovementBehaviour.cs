@@ -15,10 +15,11 @@ public class MovementBehaviour : MonoBehaviour
     public float neighboorRadius = 1.5f;
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
+    public Vector2 velocity;
 
     float squareMaxSpeed;
     float squareNeighboorsRadius;
-    float squareAvoidanceRadius;
+    [SerializeField] float squareAvoidanceRadius;
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
     Collider2D ownCollider;
@@ -41,9 +42,9 @@ public class MovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 move = CalculateMove();
+        velocity = CalculateMove();
         
-        transform.position += (Vector3)move * Time.deltaTime;
+        transform.position += (Vector3)velocity * Time.deltaTime;
         transform.up = target.position - transform.position;
     }
 

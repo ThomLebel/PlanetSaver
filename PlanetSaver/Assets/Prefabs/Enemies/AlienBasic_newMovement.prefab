@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: -623983877521447477}
   - component: {fileID: -731956709148941032}
   - component: {fileID: 4434248898239604438}
+  - component: {fileID: 988819918153484397}
   m_Layer: 10
   m_Name: AlienBasic_newMovement
   m_TagString: Enemy
@@ -155,7 +156,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -306,17 +307,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviours:
   - behaviour: {fileID: 11400000, guid: de371e98e55d0fa4f881fba047366e75, type: 2}
-    weight: 1
+    weight: 0
   - behaviour: {fileID: 11400000, guid: 7939a659c02e0e74f814aa371d0591d5, type: 2}
-    weight: 10
-  - behaviour: {fileID: 11400000, guid: f5e60cb10d706bd4198ddbd9a07a2a91, type: 2}
-    weight: 2
-  - behaviour: {fileID: 11400000, guid: 46c0899ebe0bc1d4586e0c272b2609dc, type: 2}
     weight: 4
+  - behaviour: {fileID: 11400000, guid: f5e60cb10d706bd4198ddbd9a07a2a91, type: 2}
+    weight: 0
+  - behaviour: {fileID: 11400000, guid: 1fba996d87362b940a3f96c9780db9cb, type: 2}
+    weight: 1
   speed: 3
   driveFactor: 10
   neighboorRadius: 1.5
-  avoidanceRadiusMultiplier: 0.5
+  avoidanceRadiusMultiplier: 1
+  velocity: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
   target: {fileID: 0}
 --- !u!114 &4434248898239604438
 MonoBehaviour:
@@ -346,6 +349,22 @@ MonoBehaviour:
     weight: 50
   - loot: {fileID: 1547058686540284891, guid: 34243abe25bf3094c97aaa3884e91831, type: 3}
     weight: 20
+--- !u!58 &988819918153484397
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.44755572
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0
