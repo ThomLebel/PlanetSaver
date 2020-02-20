@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/HealOverTime")]
 public class TempHealOverTimeBonus : TemporaryBonusScript
 {
     public float buffDuration = 5f;

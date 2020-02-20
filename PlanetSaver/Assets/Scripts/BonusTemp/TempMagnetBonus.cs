@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/Magnet")]
 public class TempMagnetBonus : TemporaryBonusScript
 {
     public float magnetDuration;
@@ -17,7 +18,7 @@ public class TempMagnetBonus : TemporaryBonusScript
             priorityTargetScript = player.AddComponent<PriorityTargetScript>();
         }
 
-        priorityTargetScript.type = "magnet";
+        priorityTargetScript.type = ConstantVar.BUFF_MAGNET;
         priorityTargetScript.effectDuration = magnetDuration;
     }
 }

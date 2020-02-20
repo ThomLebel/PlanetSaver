@@ -193,11 +193,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviours:
+  movementBehaviours:
   - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
     weight: 1
+  steeringBehaviours: []
   speed: 1
   driveFactor: 10
   neighboorRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
+  velocity: {x: 0, y: 0}
+  steering: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
   target: {fileID: 0}

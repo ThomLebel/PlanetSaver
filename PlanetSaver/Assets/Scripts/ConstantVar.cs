@@ -15,6 +15,7 @@
 		public const string COLLECT_COIN = "CollectCoin";
 		public const string CREATE_BULLET = "CreateBullet";
 		public const string BOOST_WEAPON = "BoostWeapon";
+		public const string BOOST_SPEED = "BoostSpeed";
 		public const string FIND_PRIORITY_TARGET = "FindPriorityTarget";
 		public const string SET_PRIORITY_TARGET = "SetPriorityTarget";
 		public const string RESET_PRIORITY_TARGET = "ResetPriorityTarget";
@@ -26,6 +27,8 @@
 		public const string ENEMY_SPAWNED = "EnemySpawned";
 		public const string STOP_SPAWNING = "StopSpawning";
 		public const string REGISTER_DEFENSIVE_MODIFIER = "RegisterDefensiveModifier";
+		public const string GET_HEALTH = "GetHealth";
+		public const string SEND_HEALTH = "SendHealth";
 
 	#endregion
 
@@ -34,5 +37,12 @@
 		public const string ATK_ATR_EXPLOSION = "Explosion";
 		public const string ATK_ATR_POISON = "Poison";
 		public const string ATK_ATR_PIERCING = "Piercing";
+	#endregion
+
+	#region "Buff Names"
+		public const string BUFF_MAGNET = "magnet";
+		public const string BUFF_TAUNT = "taunt";
+		public const string BUFF_DAMAGE = "damage";
+		public const string BUFF_FIRERATE = "firerate";
 	#endregion
 }

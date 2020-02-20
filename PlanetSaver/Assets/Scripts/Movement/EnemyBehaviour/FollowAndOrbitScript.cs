@@ -23,7 +23,7 @@ public class FollowAndOrbitScript : EnemyBehaviour
         if(targetDistance > orbitDistance + orbitDistanceOffset){
             move = follow.CalculateMove(agent, context, target, behaviour);
         }else if(targetDistance < orbitDistance - orbitDistanceOffset){
-            move = (Vector2)(agent.position - target.position).normalized * 0.5f;
+            move = (Vector2)(agent.position - target.position).normalized * 0.2f;
         }else{
             move = orbit.CalculateMove(agent, context, target, behaviour);
         }

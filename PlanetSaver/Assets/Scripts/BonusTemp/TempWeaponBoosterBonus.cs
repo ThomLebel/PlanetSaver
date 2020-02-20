@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/WeaponBooster")]
 public class TempWeaponBoosterBonus : TemporaryBonusScript
 {
     public string boostType;

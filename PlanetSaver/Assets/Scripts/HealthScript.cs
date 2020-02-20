@@ -32,14 +32,12 @@ public class HealthScript : MonoBehaviour
 
 	private void Heal(){
 		var eventData = EventManager.GetDataGroup(ConstantVar.HEAL);
-
 		if (eventData == null)
 		{
 			return;
 		}
 
 		GameObject target = eventData[0].ToGameObject();
-
 		if (target != this.gameObject)
 		{
 			return;

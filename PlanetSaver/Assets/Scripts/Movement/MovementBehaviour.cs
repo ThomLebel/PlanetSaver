@@ -7,7 +7,8 @@ using TigerForge;
 [RequireComponent(typeof(AssignTargetScript))]
 public class MovementBehaviour : MonoBehaviour
 {
-    public Behaviour[] behaviours;
+    public Behaviour[] movementBehaviours;
+    public Behaviour[] steeringBehaviours;
     public float speed;
     [Range(1f, 100f)]
     public float driveFactor = 10f;
@@ -16,6 +17,9 @@ public class MovementBehaviour : MonoBehaviour
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
     public Vector2 velocity;
+    public Vector2 steering;
+
+    Vector2 movement;
 
     float squareMaxSpeed;
     float squareNeighboorsRadius;
@@ -42,13 +46,23 @@ public class MovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        velocity = CalculateMove();
+        velocity = CalculateMove(movementBehaviours);
+        steering = CalculateMove(steeringBehaviours);
+        Vector3 move = velocity + steering;
+        move *= driveFactor;
+        if(move.sqrMagnitude > squareMaxSpeed){
+            move = move.normalized * speed;
+        }
         
-        transform.position += (Vector3)velocity * Time.deltaTime;
+        transform.position += move * Time.deltaTime;
         transform.up = target.position - transform.position;
     }
 
-    private Vector2 CalculateMove(){
+    private Vector2 CalculateMove(Behaviour[] behaviours){
+        if(behaviours.Length <= 0){
+            return Vector2.zero;
+        }
+        
         Vector2 move = Vector2.zero;
         List<Transform> context = GetNearbyObjects();
 
@@ -69,11 +83,6 @@ public class MovementBehaviour : MonoBehaviour
             }
         }
 
-        move *= driveFactor;
-        if(move.sqrMagnitude > squareMaxSpeed){
-            move = move.normalized * speed;
-        }
-
         return move;
     }
 
@@ -81,7 +90,7 @@ public class MovementBehaviour : MonoBehaviour
         List<Transform> context = new List<Transform>();
         Collider2D[] contextColliders = Physics2D.OverlapCircleAll(transform.position, neighboorRadius);
         foreach(Collider2D c in contextColliders){
-            if(c != ownCollider){
+            if(c.gameObject != gameObject){
                 context.Add(c.transform);
             }
         }

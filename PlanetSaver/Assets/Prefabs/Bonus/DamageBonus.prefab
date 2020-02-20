@@ -134,12 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusList:
-  - bonus: {fileID: 869898438265342406, guid: 8dc7cc035e6b19a45b50c9611931bb80, type: 3}
+  - bonus: {fileID: 11400000, guid: 4d14d92b78c1742469a5111244631fc8, type: 2}
     weight: 60
-  - bonus: {fileID: 1911841729961982680, guid: e5913526b4278354288723ff0d4b3a79, type: 3}
+  - bonus: {fileID: 11400000, guid: a4b37628dc69cb249bc0e8ce7f90c956, type: 2}
     weight: 30
-  - bonus: {fileID: -2785297706631117884, guid: e83ce4b86d94b9c4fbbb514ecf409249,
-      type: 3}
+  - bonus: {fileID: 11400000, guid: e4350eb8e6ca7ff44a62a9896f25b68a, type: 2}
     weight: 20
 --- !u!114 &-6223334212685793716
 MonoBehaviour:
@@ -200,11 +199,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviours:
+  movementBehaviours:
   - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
     weight: 1
+  steeringBehaviours: []
   speed: 1
   driveFactor: 10
   neighboorRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
+  velocity: {x: 0, y: 0}
+  steering: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
   target: {fileID: 0}

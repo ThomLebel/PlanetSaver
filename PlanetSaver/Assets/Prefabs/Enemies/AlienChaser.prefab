@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334879396106}
   - component: {fileID: 3059389334879396117}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: wingLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,6 @@ GameObject:
   - component: {fileID: 3059389334915287678}
   - component: {fileID: 3059389334915287679}
   - component: {fileID: 3059389334915287676}
-  - component: {fileID: 3059389334915287677}
-  - component: {fileID: 3059389334915287672}
   - component: {fileID: 3059389334915287666}
   - component: {fileID: 3059389334915287667}
   - component: {fileID: 771978938}
@@ -102,10 +100,11 @@ GameObject:
   - component: {fileID: -5934858170558281622}
   - component: {fileID: -2043652429207281186}
   - component: {fileID: -623983877521447477}
-  - component: {fileID: -4340084863465037196}
-  - component: {fileID: 7852506601416617808}
-  m_Layer: 10
-  m_Name: AlienChaser
+  - component: {fileID: 7446587523798198744}
+  - component: {fileID: 6445438865855692286}
+  - component: {fileID: 6209435601133966585}
+  m_Layer: 12
+  m_Name: AlienChaser_newMoveSystem
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +155,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -173,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9186673, y: 0.60418105}
+  m_Size: {x: 0.7509263, y: 0.60418105}
   m_EdgeRadius: 0
 --- !u!114 &3059389334915287676
 MonoBehaviour:
@@ -189,40 +188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   findClosest: 1
-  tauntable: 1
+  tauntable: 0
   magnetizable: 0
---- !u!114 &3059389334915287677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aeb4262e9265d4a996bccab7a32a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  target: {fileID: 0}
-  destinationReach: 0
---- !u!114 &3059389334915287672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d09737567a2d1954b9c4b3df1e635e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbitDistance: 30
-  velocity: 15
-  distanceOffset: 0.5
-  isOrbiting: 0
-  target: {fileID: 0}
 --- !u!114 &3059389334915287666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetsTag:
   - Player
-  - Planet
 --- !u!114 &771978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +234,6 @@ MonoBehaviour:
   - {fileID: 195073336385758193}
   targetsTag:
   - Player
-  - Planet
   primaryAttack: 0
 --- !u!114 &-4352518896620939439
 MonoBehaviour:
@@ -296,7 +261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetsTag:
-  - Planet
   - Player
   initiator: {fileID: 3059389334915287664}
   collisionDamage: 30
@@ -325,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4340084863465037196
+--- !u!114 &7446587523798198744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,27 +298,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 3059389334915287664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4f808cca86a4e48a59a2c26ae30696, type: 3}
+  m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 1792
-  neighboorRadius: 2
-  avoidanceRadiusMultiplier: 0.5
---- !u!114 &7852506601416617808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8d1bf51bae48e4a8649fc592ed2f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  movementBehaviours:
+  - behaviour: {fileID: 11400000, guid: 46c0899ebe0bc1d4586e0c272b2609dc, type: 2}
+    weight: 1
+  steeringBehaviours:
+  - behaviour: {fileID: 11400000, guid: 9f7d9330aaf1078489ef075b19e47d96, type: 2}
+    weight: 4
   speed: 3
+  driveFactor: 10
+  neighboorRadius: 1.5
+  avoidanceRadiusMultiplier: 1
+  velocity: {x: 0, y: 0}
+  steering: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
+  target: {fileID: 0}
+--- !u!114 &6445438865855692286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e968f2b59d77514aa8f69aba2aa7435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootChance: 25
+  maxObjectLooted: 3
+  forceModifier: 25
+  loots:
+  - loot: {fileID: 8820843103745819951, guid: d338894f8300cc745819cc5a0b8bb4be, type: 3}
+    weight: 80
+  - loot: {fileID: 3258886663331843471, guid: 31b5015176319304782775434b0b450f, type: 3}
+    weight: 40
+  - loot: {fileID: 8447103715262046117, guid: b2983d3d6e09f9f439607d7d490cacbf, type: 3}
+    weight: 10
+  - loot: {fileID: 1547058686540284891, guid: 61a4234c7fb62d04a9fe527c03d7a0b4, type: 3}
+    weight: 50
+  - loot: {fileID: 1547058686540284891, guid: 52359fd9f6a3ae84981182adb3798122, type: 3}
+    weight: 30
+  - loot: {fileID: 1547058686540284891, guid: 34243abe25bf3094c97aaa3884e91831, type: 3}
+    weight: 20
+--- !u!58 &6209435601133966585
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.41861662
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334928784986}
   - component: {fileID: 3059389334928784933}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: reactorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334980651544}
   - component: {fileID: 3059389334980651547}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: axis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389335161707915}
   - component: {fileID: 3059389335161707914}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: wingRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389335707030146}
   - component: {fileID: 3059389335707030157}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3059389336124126767}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336328096435}
   - component: {fileID: 3059389336328096434}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: reactorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336457353341}
   - component: {fileID: 3059389336457353340}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389336791649714}
   - component: {fileID: 3059389336791649725}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: windowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,17 +1002,7 @@ PrefabInstance:
     - target: {fileID: 5061613754383644036, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1028,12 +1022,12 @@ PrefabInstance:
     - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8652101917429070363, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9073302798991074829, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1126,27 +1120,7 @@ PrefabInstance:
     - target: {fileID: 5061613754383644036, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5496073831788645922, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: nextShot
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765560487420139876, guid: bc3ce542b85bbbe4498a1690cc60ee35,
-        type: 3}
-      propertyPath: nextShot
-      value: 1.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1171,12 +1145,12 @@ PrefabInstance:
     - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8652101917429070363, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9073302798991074829, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}

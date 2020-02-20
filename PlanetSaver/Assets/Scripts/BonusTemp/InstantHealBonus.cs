@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 
+[CreateAssetMenu(menuName = "Bonus/InstantHeal")]
 public class InstantHealBonus : TemporaryBonusScript
 {
     public float minHeal = 10f;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/DamageReduction")]
 public class TempDamageReductionBonus : TemporaryBonusScript
 {
     public float reductionPercentage = 20f;

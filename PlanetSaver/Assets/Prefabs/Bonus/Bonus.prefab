@@ -134,25 +134,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusList:
-  - bonus: {fileID: 869898438265342406, guid: 8dc7cc035e6b19a45b50c9611931bb80, type: 3}
-    weight: 90
-  - bonus: {fileID: 4300866156824869951, guid: da84a0a3c8873e2498522674d2c96164, type: 3}
+  - bonus: {fileID: 11400000, guid: 4d14d92b78c1742469a5111244631fc8, type: 2}
+    weight: 100
+  - bonus: {fileID: 11400000, guid: a4b37628dc69cb249bc0e8ce7f90c956, type: 2}
     weight: 40
-  - bonus: {fileID: 1911841729961982680, guid: e5913526b4278354288723ff0d4b3a79, type: 3}
+  - bonus: {fileID: 11400000, guid: 0a60fb4943e2e874e9d73069e0a982ac, type: 2}
     weight: 50
-  - bonus: {fileID: 982495955575767886, guid: 85114869c1648f749804de26fca513a5, type: 3}
+  - bonus: {fileID: 11400000, guid: e4350eb8e6ca7ff44a62a9896f25b68a, type: 2}
     weight: 70
-  - bonus: {fileID: 4845986725480846914, guid: b1ff55ac33f5aa649a242a3cc8e1e8e3, type: 3}
-    weight: 80
-  - bonus: {fileID: 4013674810295184695, guid: 347c03e97533ddc4c8ba3be1ad7469fc, type: 3}
+  - bonus: {fileID: 11400000, guid: 0c5d1879b98589a4b835264c79886f8a, type: 2}
+    weight: 90
+  - bonus: {fileID: 11400000, guid: b833070f2dbe56349b4aca36bc2a17d1, type: 2}
     weight: 10
-  - bonus: {fileID: 3125259446345409398, guid: cda85f61fd2862c41917771d75768bc7, type: 3}
+  - bonus: {fileID: 11400000, guid: 65b51d7b98e42844eb9be65538ba2c3f, type: 2}
     weight: 20
-  - bonus: {fileID: -2785297706631117884, guid: e83ce4b86d94b9c4fbbb514ecf409249,
-      type: 3}
+  - bonus: {fileID: 11400000, guid: 0b8a849c2cc3ebd4aa6cc5e3828e9ba9, type: 2}
     weight: 30
-  - bonus: {fileID: 2815595311725861554, guid: 559ebb04f13461c4fa1105d6f230e453, type: 3}
+  - bonus: {fileID: 11400000, guid: 7106244ff509b8e4e804d8cbd8e2fce2, type: 2}
     weight: 60
+  - bonus: {fileID: 11400000, guid: d66ae4955c03f6c43a682e9ff545b8b0, type: 2}
+    weight: 80
 --- !u!114 &-6223334212685793716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,11 +213,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviours:
+  movementBehaviours:
   - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
     weight: 1
+  steeringBehaviours: []
   speed: 1
   driveFactor: 10
   neighboorRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
+  velocity: {x: 0, y: 0}
+  steering: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
   target: {fileID: 0}

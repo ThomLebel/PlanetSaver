@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TemporaryBonusScript : MonoBehaviour
+public abstract class TemporaryBonusScript : ScriptableObject
 {
     public string bonusName;
     

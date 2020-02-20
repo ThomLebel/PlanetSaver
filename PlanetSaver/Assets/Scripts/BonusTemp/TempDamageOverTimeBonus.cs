@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/DamageOverTime")]
 public class TempDamageOverTimeBonus : TemporaryBonusScript
 {
     public float dotBuffDuration;

@@ -62,14 +62,14 @@ public abstract class ShootProjectile : Weapon
         float value = eventData.ToFloat("value");
 
         switch(type){
-            case "damage":
+            case ConstantVar.BUFF_DAMAGE:
                 if(value > 0){
                     damage += Mathf.Floor((damage * value) / 100);
                 }else{
                     damage = initialDamage;
                 }
             break;
-            case "fireRate":
+            case ConstantVar.BUFF_FIRERATE:
                 if(value > 0){
                     fireRate += Mathf.Floor((fireRate * value) / 100);
                 }else{

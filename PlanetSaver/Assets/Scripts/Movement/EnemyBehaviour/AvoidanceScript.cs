@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Avoidance")]
 public class AvoidanceScript : FilteredEnemyBehaviour
 {
-    public float fieldOfViewAngle = 180f;
+    public float fieldOfViewAngle = 90f;
 
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)
     {
@@ -22,16 +22,18 @@ public class AvoidanceScript : FilteredEnemyBehaviour
         foreach(Transform item in filteredContext){
             float distance = Vector2.Distance(agent.position, item.position);
             Vector2 direction = item.position - agent.position;
-            float angle = Vector2.Angle(direction, agent.up);
+            Vector2 targetDirection = target.position - agent.position;
 
-            Debug.DrawRay(agent.position, direction, Color.green);
-
+            float angle = Vector2.Angle(direction, behaviour.velocity);
+            // Debug.DrawRay(agent.position, direction, Color.green);
+            // Debug.DrawRay(agent.position, behaviour.velocity, Color.blue);
+            
             if(angle > fieldOfViewAngle * 0.5f){
                 continue;
             }
+            // Debug.Log("Angle between "+agent.name+" and "+item.name+" is : "+angle+".>>> Limit angle = "+ fieldOfViewAngle * 0.5f);
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(agent.position, direction, distance);
-            Debug.DrawRay(agent.position, direction, Color.red);
 
             RaycastHit2D hit = new RaycastHit2D();
             for(int i=0; i<hits.Length; i++){
@@ -43,14 +45,10 @@ public class AvoidanceScript : FilteredEnemyBehaviour
             Vector3 avoidancePoint = (Vector3)hit.point;
             if(Vector2.SqrMagnitude(avoidancePoint - agent.position) < behaviour.SquareAvoidanceRadius){
                 nAvoid ++;
-                Vector2 avoidDir = (Vector2)(agent.position - avoidancePoint);
+                Vector2 avoidDir = (Vector2)(avoidancePoint - agent.position);
                 avoidDir = Vector2.Perpendicular(avoidDir);
-                if(agent.position.y >= item.position.y){
-                    avoidDir.x *= -1;
-                    avoidDir.y *= -1;
-                }
                 avoidanceMove += avoidDir * behaviour.speed;
-                Debug.DrawRay(agent.position, avoidanceMove, Color.red);
+                // Debug.DrawRay(agent.position, avoidanceMove, Color.red);
             }
         }
         // if(nAvoid > 0){

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/Shield")]
 public class TempShieldBonus : TemporaryBonusScript
 {
     public GameObject shieldPrefab;

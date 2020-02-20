@@ -60,12 +60,12 @@ public class AssignTargetScript : MonoBehaviour
 		string type = eventData.ToString("type");
 		Transform eventTarget = eventData.ToGameObject("target").transform; 
 		switch(type){
-			case "taunt":
+			case ConstantVar.BUFF_TAUNT:
 				if(tauntable){
 					target = eventTarget;
 				}
 			break;
-			case "magnet":
+			case ConstantVar.BUFF_MAGNET:
 				if(magnetizable){
 					target = eventTarget;
 				}
@@ -91,12 +91,12 @@ public class AssignTargetScript : MonoBehaviour
 
 		string eventType = EventManager.GetString(ConstantVar.RESET_PRIORITY_TARGET);
 		switch(eventType){
-			case "taunt":
+			case ConstantVar.BUFF_TAUNT:
 				if(!tauntable){
 					return;
 				}
 			break;
-			case "magnet":
+			case ConstantVar.BUFF_MAGNET:
 				if(!magnetizable){
 					return;
 				}

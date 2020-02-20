@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Bonus/LifeSteal")]
 public class TempLifeStealBonus : TemporaryBonusScript
 {
     public float lifeStealPercentage = 25f;

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -6159902386563325727}
   - component: {fileID: -4788086582452425295}
   m_Layer: 0
-  m_Name: SupportBonus
+  m_Name: DefenseBonus
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,13 +134,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusList:
-  - bonus: {fileID: 4845986725480846914, guid: b1ff55ac33f5aa649a242a3cc8e1e8e3, type: 3}
+  - bonus: {fileID: 11400000, guid: 0c5d1879b98589a4b835264c79886f8a, type: 2}
     weight: 60
-  - bonus: {fileID: 982495955575767886, guid: 85114869c1648f749804de26fca513a5, type: 3}
+  - bonus: {fileID: 11400000, guid: 7106244ff509b8e4e804d8cbd8e2fce2, type: 2}
     weight: 40
-  - bonus: {fileID: 4300866156824869951, guid: da84a0a3c8873e2498522674d2c96164, type: 3}
+  - bonus: {fileID: 11400000, guid: 0a60fb4943e2e874e9d73069e0a982ac, type: 2}
     weight: 20
-  - bonus: {fileID: 2815595311725861554, guid: 559ebb04f13461c4fa1105d6f230e453, type: 3}
+  - bonus: {fileID: 11400000, guid: b833070f2dbe56349b4aca36bc2a17d1, type: 2}
     weight: 10
 --- !u!114 &-6223334212685793716
 MonoBehaviour:
@@ -201,11 +201,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303fcbe3175ffbc42803f8d22c18006d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviours:
+  movementBehaviours:
   - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
     weight: 1
+  steeringBehaviours: []
   speed: 1
   driveFactor: 10
   neighboorRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
+  velocity: {x: 0, y: 0}
+  steering: {x: 0, y: 0}
+  squareAvoidanceRadius: 0
   target: {fileID: 0}
