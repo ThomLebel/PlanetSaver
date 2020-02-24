@@ -10,10 +10,12 @@ public class WeaponManager : MonoBehaviour
 	public List<string> targetsTag;
 
 	public bool primaryAttack;
+	private bool canUseWeapon = true;
 
 	private void Awake()
 	{
 		EventManager.StartListening(ConstantVar.USE_ATTACK, this.gameObject, UseWeapon);
+        EventManager.StartListening(ConstantVar.BLOCK_MOVEMENT, BlockMovement);
 	}
 
 	private void Start()
@@ -28,6 +30,10 @@ public class WeaponManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		if(!canUseWeapon){
+			return;
+		}
+
 		if (primaryAttack)
 		{
 			foreach (Weapon weapon in primaryWeapons)
@@ -47,5 +53,15 @@ public class WeaponManager : MonoBehaviour
         }
 
         primaryAttack = EventManager.GetBool(ConstantVar.USE_ATTACK);
+    }
+
+    private void BlockMovement(){
+        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.BLOCK_MOVEMENT);
+        GameObject target = eventData.ToGameObject("target");
+        if(target != gameObject){
+            return;
+        }
+
+        canUseWeapon = eventData.ToBool("canMove");
     }
 }

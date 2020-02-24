@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3059389334915287673}
   - component: {fileID: 3059389334915287678}
-  - component: {fileID: 3059389334915287679}
   - component: {fileID: 3059389334915287676}
   - component: {fileID: 3059389334915287666}
   - component: {fileID: 3059389334915287667}
@@ -103,8 +102,9 @@ GameObject:
   - component: {fileID: 7446587523798198744}
   - component: {fileID: 6445438865855692286}
   - component: {fileID: 6209435601133966585}
+  - component: {fileID: -7922269416556500477}
   m_Layer: 12
-  m_Name: AlienChaser_newMoveSystem
+  m_Name: AlienChaser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,32 +148,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &3059389334915287679
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059389334915287664}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0027110726, y: -0.035244107}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7509263, y: 0.60418105}
-  m_EdgeRadius: 0
 --- !u!114 &3059389334915287676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +283,7 @@ MonoBehaviour:
     weight: 4
   speed: 3
   driveFactor: 10
-  neighboorRadius: 1.5
+  neighboorRadius: 2
   avoidanceRadiusMultiplier: 1
   velocity: {x: 0, y: 0}
   steering: {x: 0, y: 0}
@@ -359,6 +333,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.41861662
+--- !u!210 &-7922269416556500477
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059389334915287664}
+  m_Enabled: 1
+  m_SortingLayerID: -594046557
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &3059389334928784987
 GameObject:
   m_ObjectHideFlags: 0

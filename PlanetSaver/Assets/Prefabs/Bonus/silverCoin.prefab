@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3258886663331843464}
   - component: {fileID: 3258886663331843465}
   - component: {fileID: 1433966582021029218}
-  - component: {fileID: -3596970274005166139}
-  - component: {fileID: -173171437649556079}
   - component: {fileID: 543821949373954000}
   - component: {fileID: -493489909426714960}
   m_Layer: 0
@@ -134,32 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 5
---- !u!114 &-3596970274005166139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258886663331843471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6424543e6608d3a429ba2f66573bcc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetsTag:
-  - Planet
---- !u!114 &-173171437649556079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258886663331843471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e40ef494cfb3448b597cd4ba0d4c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &543821949373954000
 Rigidbody2D:
   serializedVersion: 4
@@ -194,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementBehaviours:
-  - behaviour: {fileID: 11400000, guid: 3275c1c2f22b4f94dabd5e80ca2bd1f4, type: 2}
+  - behaviour: {fileID: 11400000, guid: d8ee3e6122949754ab5e966ab3446b60, type: 2}
     weight: 1
   steeringBehaviours: []
   speed: 1

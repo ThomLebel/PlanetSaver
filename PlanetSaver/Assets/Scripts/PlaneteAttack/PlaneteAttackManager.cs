@@ -6,9 +6,12 @@ using TigerForge;
 public class PlaneteAttackManager : MonoBehaviour
 {
     public PlaneteAttackScript attack;
-    public AttackMode attackMode;
+    public AttackActivationMode attackActivationMode;
 
+    [Tooltip("Point de vie à perdre avant d'activer l'attaque")]
     public float healthThreshold;
+
+    [Tooltip("Intervalle de temps avant d'activer l'attaque")]
     public float timeThreshold;
 
     private float healthActivation = 0f;
@@ -23,19 +26,19 @@ public class PlaneteAttackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(attackMode != AttackMode.Time){
+        if(attackActivationMode != AttackActivationMode.Time){
             return;
         }
 
         timeActivation += Time.deltaTime;
         if(timeActivation >= timeThreshold){
             timeActivation = 0;
-            attack.Attack();
+            attack.Attack(gameObject);
         }
     }
 
     void DamageTaken(){
-        if(attackMode != AttackMode.Life){
+        if(attackActivationMode != AttackActivationMode.Life){
             return;
         }
 
@@ -49,11 +52,11 @@ public class PlaneteAttackManager : MonoBehaviour
         healthActivation += attackInfo.damage;
         if(healthActivation >= healthThreshold){
             healthActivation -= healthThreshold;
-            attack.Attack();
+            attack.Attack(gameObject);
         }
     }
 
-    public enum AttackMode{
+    public enum AttackActivationMode{
         Life,
         Time
     }

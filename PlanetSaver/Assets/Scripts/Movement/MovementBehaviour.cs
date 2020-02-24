@@ -19,8 +19,10 @@ public class MovementBehaviour : MonoBehaviour
     public Vector2 velocity;
     public Vector2 steering;
 
+    [SerializeField] bool canMove = true;
     Vector2 movement;
-
+    
+    float moveSpeed;
     float squareMaxSpeed;
     float squareNeighboorsRadius;
     [SerializeField] float squareAvoidanceRadius;
@@ -33,12 +35,14 @@ public class MovementBehaviour : MonoBehaviour
 	{
         ownCollider = GetComponent<Collider2D>();
 		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
+        EventManager.StartListening(ConstantVar.BLOCK_MOVEMENT, BlockMovement);
 	}
 
     // Start is called before the first frame update
     void Start()
     {
-        squareMaxSpeed = speed * speed;
+        moveSpeed = speed;
+        squareMaxSpeed = moveSpeed * moveSpeed;
         squareNeighboorsRadius = neighboorRadius * neighboorRadius;
         squareAvoidanceRadius = squareNeighboorsRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
     }
@@ -46,12 +50,16 @@ public class MovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(!canMove){
+            return;
+        }
+
         velocity = CalculateMove(movementBehaviours);
         steering = CalculateMove(steeringBehaviours);
         Vector3 move = velocity + steering;
         move *= driveFactor;
         if(move.sqrMagnitude > squareMaxSpeed){
-            move = move.normalized * speed;
+            move = move.normalized * moveSpeed;
         }
         
         transform.position += move * Time.deltaTime;
@@ -101,12 +109,21 @@ public class MovementBehaviour : MonoBehaviour
 	private void SetTarget()
 	{
 		GameObject sender =(GameObject) EventManager.GetSender(ConstantVar.SET_TARGET);
-
 		if (sender != null && sender == gameObject)
 		{
 			target = (Transform)EventManager.GetData(ConstantVar.SET_TARGET);
 		}
 	}
+
+    private void BlockMovement(){
+        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.BLOCK_MOVEMENT);
+        GameObject target = eventData.ToGameObject("target");
+        if(target != gameObject){
+            return;
+        }
+
+        canMove = eventData.ToBool("canMove");
+    }
 
     [Serializable]
     public struct Behaviour{

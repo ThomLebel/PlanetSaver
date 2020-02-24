@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 [CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/FollowAndOrbit")]
 public class FollowAndOrbitScript : EnemyBehaviour
@@ -10,6 +11,8 @@ public class FollowAndOrbitScript : EnemyBehaviour
     public float orbitDistance;
     [Tooltip("distance offset needed to stop orbiting and resume following")]
     public float orbitDistanceOffset = 0.5f;
+
+    private bool orbiting = false;
 
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)
     {
@@ -26,6 +29,16 @@ public class FollowAndOrbitScript : EnemyBehaviour
             move = (Vector2)(agent.position - target.position).normalized * 0.2f;
         }else{
             move = orbit.CalculateMove(agent, context, target, behaviour);
+        }
+
+        if(targetDistance < orbitDistance && !orbiting){
+            orbiting = true;
+            EventManager.SetData(ConstantVar.DESTINATION_REACH, orbiting);
+            EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, agent.gameObject);
+        }else if(targetDistance > orbitDistance + orbitDistanceOffset && orbiting){
+            orbiting = false;
+            EventManager.SetData(ConstantVar.DESTINATION_REACH, orbiting);
+            EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, agent.gameObject);
         }
 
         return move;

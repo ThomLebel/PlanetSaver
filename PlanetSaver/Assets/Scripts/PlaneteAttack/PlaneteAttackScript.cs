@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class PlaneteAttackScript : ScriptableObject
 {
     public string attackName;
-    public abstract void Attack();
+    public abstract void Attack(GameObject planete);
 }

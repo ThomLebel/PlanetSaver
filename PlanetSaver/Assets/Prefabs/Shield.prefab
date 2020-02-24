@@ -42,8 +42,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848309085029371620}
   m_Enabled: 1
-  m_SortingLayerID: -1258046071
-  m_SortingLayer: 1
+  m_SortingLayerID: -594046557
+  m_SortingLayer: 2
   m_SortingOrder: 30
 --- !u!58 &-2418077521252924310
 CircleCollider2D:

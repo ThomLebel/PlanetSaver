@@ -20,6 +20,7 @@
 		public const string SET_PRIORITY_TARGET = "SetPriorityTarget";
 		public const string RESET_PRIORITY_TARGET = "ResetPriorityTarget";
 		public const string COLLIDE_WITH_SOMETHING = "CollideWithSomething";
+		public const string BLOCK_MOVEMENT = "BlockMovement";
 
 		//CommonEvent
 		public const string GET_OWNER = "GetOwner";

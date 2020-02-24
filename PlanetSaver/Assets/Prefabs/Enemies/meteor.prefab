@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6108387498144245676}
   - component: {fileID: -1072673643513133223}
   - component: {fileID: 5015964533549892594}
+  - component: {fileID: -7852557329652821666}
   m_Layer: 11
   m_Name: meteor
   m_TagString: Enemy
@@ -264,3 +265,14 @@ MonoBehaviour:
     weight: 2
   - loot: {fileID: 1547058686540284891, guid: 34243abe25bf3094c97aaa3884e91831, type: 3}
     weight: 5
+--- !u!210 &-7852557329652821666
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873740251047452227}
+  m_Enabled: 1
+  m_SortingLayerID: -594046557
+  m_SortingLayer: 2
+  m_SortingOrder: 0

@@ -31,6 +31,9 @@ public class ExplodeOnCollision : EffectOnCollision
         //Dégâts dégressif en fonction de la distance d'impact ?
         for(int i = 0; i < targets.Length; i++){
             Collider2D target = targets[i];
+            if(target.gameObject == gameObject){
+                continue;
+            }
 
             AttackInfo attackInfo = new AttackInfo(
                 initiator,

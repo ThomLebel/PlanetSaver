@@ -18,6 +18,8 @@ public class EnemySpawnerScript : MonoBehaviour
 	private Camera cam;
 	private Transform cameraRig;
 	private bool stopSpawning;
+	[SerializeField] private List<Vector2> spawnAreas;
+	[SerializeField] private int activeSpawnAreas = 1;
 
 	private void Awake()
 	{
@@ -25,6 +27,16 @@ public class EnemySpawnerScript : MonoBehaviour
 		cameraRig = cam.GetComponentInParent<Transform>();
 		minAngle = Random.Range(0, 360);
 		maxAngle = minAngle + angleInterval;
+
+		spawnAreas = new List<Vector2>();
+
+		for(int i = 0; i < 8; i++){
+			spawnAreas.Add(new Vector2(minAngle, maxAngle));
+			minAngle = maxAngle;
+			maxAngle += angleInterval;
+		}
+
+		spawnAreas = Helpers.Shuffle<Vector2>(spawnAreas);
 	}
 
 	private void Start()
@@ -56,10 +68,12 @@ public class EnemySpawnerScript : MonoBehaviour
 
 	private void SpawnEnemy()
 	{
-		int enemyIndex = Random.Range(0, enemies.Count);
-		Vector3 enemyPos = GetRandomPointOnSpawnCircle();
-		GameObject enemy = Instantiate(enemies[enemyIndex], enemyPos, Quaternion.identity);
-		EventManager.EmitEvent(ConstantVar.ENEMY_SPAWNED);
+		for(int i=0; i<activeSpawnAreas; i++){
+			int enemyIndex = Random.Range(0, enemies.Count);
+			Vector3 enemyPos = GetRandomPointOnSpawnCircle(i);
+			GameObject enemy = Instantiate(enemies[enemyIndex], enemyPos, Quaternion.identity);
+			EventManager.EmitEvent(ConstantVar.ENEMY_SPAWNED);
+		}
 	}
 
 	private void StopSpawning()
@@ -67,11 +81,15 @@ public class EnemySpawnerScript : MonoBehaviour
 		stopSpawning = true;
 	}
 
-	private Vector3 GetRandomPointOnSpawnCircle()
+	private void AddSpawnArea(){
+		activeSpawnAreas ++;
+	}
+
+	private Vector3 GetRandomPointOnSpawnCircle(int index)
 	{
         circleRadius = (cam.orthographicSize * cam.aspect) + Mathf.Abs(cameraRig.position.x) + offset;
-
-		float degree = Random.Range(minAngle, maxAngle);
+		
+		float degree = Random.Range(spawnAreas[index].x, spawnAreas[index].y);
 		float radian = degree * Mathf.Deg2Rad;
 		float x = Mathf.Cos(radian);
 		float y = Mathf.Sin(radian);

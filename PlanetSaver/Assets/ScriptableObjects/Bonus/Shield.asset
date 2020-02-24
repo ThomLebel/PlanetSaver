@@ -15,4 +15,4 @@ MonoBehaviour:
   bonusName: Shield
   shieldPrefab: {fileID: 848309085029371620, guid: 325153bc3122c594e94a9afde788d093,
     type: 3}
-  shieldLifeTime: 5
+  shieldLifeTime: 20
