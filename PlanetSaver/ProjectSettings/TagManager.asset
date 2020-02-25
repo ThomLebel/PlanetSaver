@@ -10,6 +10,7 @@ TagManager:
   - Shield
   - Collectible
   - Obstacle
+  - Friendly
   layers:
   - Default
   - TransparentFX

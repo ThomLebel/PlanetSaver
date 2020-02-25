@@ -5,6 +5,7 @@ using TigerForge;
 
 public class ExplodeOnCollision : EffectOnCollision
 {
+	public List<string> targetsTag;
     public float explosionDamage;
     public float explosionRadius;
 	public string attributes;

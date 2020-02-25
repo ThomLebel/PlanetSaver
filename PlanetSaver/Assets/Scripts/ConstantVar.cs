@@ -21,6 +21,8 @@
 		public const string RESET_PRIORITY_TARGET = "ResetPriorityTarget";
 		public const string COLLIDE_WITH_SOMETHING = "CollideWithSomething";
 		public const string BLOCK_MOVEMENT = "BlockMovement";
+		public const string MIND_CONTROL = "MindControl";
+		public const string RESET_MIND_CONTROL = "ResetMindControl";
 
 		//CommonEvent
 		public const string GET_OWNER = "GetOwner";
@@ -30,7 +32,7 @@
 		public const string REGISTER_DEFENSIVE_MODIFIER = "RegisterDefensiveModifier";
 		public const string GET_HEALTH = "GetHealth";
 		public const string SEND_HEALTH = "SendHealth";
-
+		public const string IS_DEAD = "IsDead";
 	#endregion
 
 	#region "Attack Attributes"

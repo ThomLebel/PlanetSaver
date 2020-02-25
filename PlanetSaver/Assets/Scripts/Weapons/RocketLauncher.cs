@@ -23,6 +23,5 @@ public class RocketLauncher : ShootProjectile
         DamageOnCollision damageOnCollision = shot.AddComponent<DamageOnCollision>();
         damageOnCollision.initiator = user;
         damageOnCollision.collisionDamage = damage;
-        damageOnCollision.targetsTag = targetTags;
     }
 }

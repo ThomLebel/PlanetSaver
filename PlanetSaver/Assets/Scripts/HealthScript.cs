@@ -57,6 +57,8 @@ public class HealthScript : MonoBehaviour
 		{
 			health = 0;
 			gameObject.SetActive(false);
+			EventManager.EmitEvent(ConstantVar.IS_DEAD, gameObject);
+			Debug.Log(gameObject+" is Dead !");
 		}
 	}
 

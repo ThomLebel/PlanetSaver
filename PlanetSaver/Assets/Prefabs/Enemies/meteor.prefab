@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -1072673643513133223}
   - component: {fileID: 5015964533549892594}
   - component: {fileID: -7852557329652821666}
+  - component: {fileID: 2395174226785381476}
   m_Layer: 11
   m_Name: meteor
   m_TagString: Enemy
@@ -187,6 +188,7 @@ MonoBehaviour:
   targetsTag:
   - Player
   - Planet
+  - Friendly
 --- !u!114 &-2093355637432151804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,7 @@ MonoBehaviour:
   targetsTag:
   - Planet
   - Player
+  - Friendly
   initiator: {fileID: 8873740251047452227}
   collisionDamage: 10
   attributes: Collision
@@ -239,6 +242,7 @@ MonoBehaviour:
   avoidanceRadiusMultiplier: 0.5
   velocity: {x: 0, y: 0}
   steering: {x: 0, y: 0}
+  canMove: 1
   squareAvoidanceRadius: 0
   target: {fileID: 0}
 --- !u!114 &5015964533549892594
@@ -276,3 +280,15 @@ SortingGroup:
   m_SortingLayerID: -594046557
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &2395174226785381476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873740251047452227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fe040999ad8904081d9405ed417964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

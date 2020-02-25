@@ -6,12 +6,6 @@ using TigerForge;
 public class BlockOnCollision : EffectOnCollision
 {
     public float blockDuration = 6f;
-
-    // Start is called before the first frame update
-    protected override void Start()
-    {
-        base.Start();
-    }
     
     protected override void Effect()
     {

@@ -175,7 +175,7 @@ MonoBehaviour:
   targetsTag:
   - Enemy
   initiator: {fileID: 0}
-  blockDuration: 6
+  blockDuration: 12
 --- !u!95 &145684956695688858
 Animator:
   serializedVersion: 3

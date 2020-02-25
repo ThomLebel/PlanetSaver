@@ -5,7 +5,6 @@ using TigerForge;
 
 public abstract class EffectOnCollision : MonoBehaviour
 {
-	public List<string> targetsTag;
 	public GameObject initiator;
     
     void Awake() {

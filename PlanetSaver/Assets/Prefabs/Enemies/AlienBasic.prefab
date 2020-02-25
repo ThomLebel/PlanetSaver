@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Planet
-  findClosest: 1
   tauntable: 1
   magnetizable: 0
 --- !u!114 &3059389334915287666
@@ -192,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetsTag:
   - Player
+  - Friendly
 --- !u!114 &771978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   targetsTag:
   - Player
   - Planet
+  - Friendly
   primaryAttack: 0
 --- !u!114 &-4352518896620939439
 MonoBehaviour:
@@ -236,9 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabad43979c02d4285a8f5b6437d9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetsTag:
-  - Planet
-  - Player
   initiator: {fileID: 3059389334915287664}
   collisionDamage: 30
   attributes: Collision
@@ -254,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0268c001caa864d46bd26c37328e0fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canUseWeapon: 1
 --- !u!114 &-623983877521447477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementBehaviours:
-  - behaviour: {fileID: 11400000, guid: 46c0899ebe0bc1d4586e0c272b2609dc, type: 2}
+  - behaviour: {fileID: 11400000, guid: f18cc527119f61748982be9f90847966, type: 2}
     weight: 1
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: 7939a659c02e0e74f814aa371d0591d5, type: 2}
@@ -290,6 +289,7 @@ MonoBehaviour:
   avoidanceRadiusMultiplier: 1
   velocity: {x: 0, y: 0}
   steering: {x: 0, y: 0}
+  canMove: 1
   squareAvoidanceRadius: 0
   target: {fileID: 0}
 --- !u!114 &4434248898239604438

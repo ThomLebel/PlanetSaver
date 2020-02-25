@@ -6,16 +6,20 @@ using TigerForge;
 public class AssignTargetScript : MonoBehaviour
 {
 	public string targetTag;
-	public bool findClosest;
 	public bool tauntable;
 	public bool magnetizable;
 
 	private Transform target;
+	private string originalTarget;
 
 	private void Start()
 	{
+		originalTarget = targetTag;
 		EventManager.StartListening(ConstantVar.SET_PRIORITY_TARGET, AssignPriorityTarget);
 		EventManager.StartListening(ConstantVar.RESET_PRIORITY_TARGET, ResetPriorityTarget);
+		EventManager.StartListening(ConstantVar.MIND_CONTROL, MindControl);
+		EventManager.StartListening(ConstantVar.RESET_MIND_CONTROL, ResetMindControl);
+		EventManager.StartListening(ConstantVar.IS_DEAD, TargetIsDead);
 
 		EventManager.EmitEvent(ConstantVar.FIND_PRIORITY_TARGET, gameObject);
 
@@ -23,6 +27,10 @@ public class AssignTargetScript : MonoBehaviour
 	}
 
 	private void Update() {
+		if(target != null && target.CompareTag(gameObject.tag)){
+			ResetTarget();
+		}
+
 		if(target != null){
 			return;
 		}
@@ -33,20 +41,16 @@ public class AssignTargetScript : MonoBehaviour
 		if(target != null){
 			return;
 		}
-		if (findClosest)
-		{
-			target = FindClosestTarget(targetTag, transform.position);
-		}
-		else
-		{
-			target = FindTarget(targetTag);
-		}
+
+		target = FindClosestTarget(targetTag, transform.position);
+
 		if(target == null){
 			return;
 		}
 		
 		EventManager.SetData(ConstantVar.SET_TARGET, target);
 		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
+		Debug.Log(target);
 	}
 
 	private void AssignPriorityTarget(){
@@ -109,16 +113,38 @@ public class AssignTargetScript : MonoBehaviour
 		AssignTarget();
 	}
 
-	private Transform FindTarget(string targetTag)
-	{
-		GameObject[] targetList = FindTargetArray(targetTag);
-
-		if(targetList.Length > 0)
-		{
-			return targetList[0].transform;
+	private void MindControl(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.MIND_CONTROL);
+		if(sender == null || sender != gameObject){
+			return;
 		}
 
-		return null;
+		targetTag = EventManager.GetString(ConstantVar.MIND_CONTROL);
+		ResetTarget();
+	}
+
+	private void ResetMindControl(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.RESET_MIND_CONTROL);
+		if(sender == null || sender != gameObject){
+			return;
+		}
+
+		targetTag = originalTarget;
+		ResetTarget();
+	}
+
+	private void TargetIsDead(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.IS_DEAD);
+		if(sender == null || sender == gameObject || (target != null && sender != target.gameObject)){
+			return;
+		}
+
+		ResetTarget();
+	}
+
+	private void ResetTarget(){
+		target = null;
+		AssignTarget();
 	}
 
 	private Transform FindClosestTarget(string targetTag, Vector3 position)
@@ -126,18 +152,21 @@ public class AssignTargetScript : MonoBehaviour
 		GameObject[] targetList = FindTargetArray(targetTag);
 
 		Transform target = null;
+		Transform temp = null;
 		float dist = Mathf.Infinity;
 
 		if (targetList.Length > 0)
 		{
+			target = targetList[0].transform;
+			dist = (target.position - position).sqrMagnitude;
+
 			for (int i=0; i<targetList.Length; i++)
 			{
-				if (target == null)
-				{
-					target = targetList[i].transform;
-				}
-				Vector3 directionToTarget = target.position - position;
+				temp = targetList[i].transform;
+
+				Vector3 directionToTarget = temp.position - position;
 				float dSqrToTarget = directionToTarget.sqrMagnitude;
+
 				if (dSqrToTarget < dist)
 				{
 					dist = dSqrToTarget;

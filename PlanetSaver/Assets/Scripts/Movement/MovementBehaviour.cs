@@ -36,6 +36,8 @@ public class MovementBehaviour : MonoBehaviour
         ownCollider = GetComponent<Collider2D>();
 		EventManager.StartListening(ConstantVar.SET_TARGET, SetTarget);
         EventManager.StartListening(ConstantVar.BLOCK_MOVEMENT, BlockMovement);
+		EventManager.StartListening(ConstantVar.MIND_CONTROL, MindControl);
+		EventManager.StartListening(ConstantVar.RESET_MIND_CONTROL, ResetMindControl);
 	}
 
     // Start is called before the first frame update
@@ -63,7 +65,11 @@ public class MovementBehaviour : MonoBehaviour
         }
         
         transform.position += move * Time.deltaTime;
-        transform.up = target.position - transform.position;
+        if(target != null){
+            transform.up = target.position - transform.position;
+        }else{
+            transform.up = move;
+        }
     }
 
     private Vector2 CalculateMove(Behaviour[] behaviours){
@@ -124,6 +130,24 @@ public class MovementBehaviour : MonoBehaviour
 
         canMove = eventData.ToBool("canMove");
     }
+
+    private void MindControl(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.MIND_CONTROL);
+		if(sender == null || sender != gameObject){
+			return;
+		}
+
+		target = null;
+	}
+
+	private void ResetMindControl(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.RESET_MIND_CONTROL);
+		if(sender == null || sender != gameObject){
+			return;
+		}
+
+		target = null;
+	}
 
     [Serializable]
     public struct Behaviour{
