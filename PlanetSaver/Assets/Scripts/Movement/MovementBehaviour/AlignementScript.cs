@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Alignement")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/Alignement")]
 public class AlignementScript : FilteredEnemyBehaviour
 {
     public override Vector2 CalculateMove(Transform agent, List<Transform> context, Transform target, MovementBehaviour behaviour)

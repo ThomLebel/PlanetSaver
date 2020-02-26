@@ -115,10 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e68c972da1d4c897e8a9e31d353d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Planet
-  findClosest: 0
+  targetTag:
+  - Planet
   tauntable: 0
   magnetizable: 1
+  originalTarget: []
 --- !u!114 &8569626089885812446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,5 +176,6 @@ MonoBehaviour:
   avoidanceRadiusMultiplier: 0.5
   velocity: {x: 0, y: 0}
   steering: {x: 0, y: 0}
+  canMove: 1
   squareAvoidanceRadius: 0
   target: {fileID: 0}

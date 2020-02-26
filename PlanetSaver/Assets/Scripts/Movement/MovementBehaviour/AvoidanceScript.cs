@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Avoidance")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/Avoidance")]
 public class AvoidanceScript : FilteredEnemyBehaviour
 {
     public float fieldOfViewAngle = 90f;

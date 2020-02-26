@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/FollowAndOrbit")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/FollowAndOrbit")]
 public class FollowAndOrbitScript : EnemyBehaviour
 {
     public EnemyBehaviour follow;
@@ -31,7 +31,7 @@ public class FollowAndOrbitScript : EnemyBehaviour
             move = orbit.CalculateMove(agent, context, target, behaviour);
         }
 
-        if(targetDistance < orbitDistance && !orbiting){
+        if(targetDistance < orbitDistance + orbitDistanceOffset && !orbiting){
             orbiting = true;
             EventManager.SetData(ConstantVar.DESTINATION_REACH, orbiting);
             EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, agent.gameObject);

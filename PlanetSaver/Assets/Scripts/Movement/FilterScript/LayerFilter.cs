@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Filter/LayerFilter")]
+[CreateAssetMenu(menuName = "IA/Filter/LayerFilter")]
 public class LayerFilter : FilterScript
 {
     public LayerMask mask;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/FollowAndArrive")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/FollowAndArrive")]
 public class FollowAndArrive : EnemyBehaviour
 {
     public EnemyBehaviour follow;
@@ -26,7 +26,7 @@ public class FollowAndArrive : EnemyBehaviour
             move = follow.CalculateMove(agent, context, target, behaviour);
         }
 
-        if(targetDistance < stopDistance && !arrived){
+        if(targetDistance < stopDistance + stopDistanceOffset && !arrived){
             arrived = true;
             EventManager.SetData(ConstantVar.DESTINATION_REACH, arrived);
             EventManager.EmitEvent(ConstantVar.DESTINATION_REACH, agent.gameObject);

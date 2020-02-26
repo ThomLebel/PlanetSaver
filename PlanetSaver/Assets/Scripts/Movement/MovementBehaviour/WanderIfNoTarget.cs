@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/WanderIfNoTarget")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/WanderIfNoTarget")]
 public class WanderIfNoTarget : EnemyBehaviour
 {
     public EnemyBehaviour wander;

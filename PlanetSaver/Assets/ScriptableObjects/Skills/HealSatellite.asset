@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9096efab0452f1469d1dfbc306d9366, type: 3}
+  m_Name: HealSatellite
+  m_EditorClassIdentifier: 
+  skillName: Heal Satellite
+  cooldown: 15
+  timer: 9.762538
+  owner: {fileID: 0}
+  invocation: {fileID: 3865944601247472842, guid: 1e6bf3b1e7eae714b970c7241451cc62,
+    type: 3}
+  lifetime: 120
+  maxInvocation: 3
+  currentInvocation: 1

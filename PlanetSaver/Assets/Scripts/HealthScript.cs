@@ -31,19 +31,15 @@ public class HealthScript : MonoBehaviour
 	}
 
 	private void Heal(){
-		var eventData = EventManager.GetDataGroup(ConstantVar.HEAL);
-		if (eventData == null)
-		{
-			return;
-		}
+		var eventData = EventManager.GetIndexedDataGroup(ConstantVar.HEAL);
 
-		GameObject target = eventData[0].ToGameObject();
+		GameObject target = eventData.ToGameObject("target");
 		if (target != this.gameObject)
 		{
 			return;
 		}
 
-		AdjustHealth(eventData[1].ToFloat());
+		AdjustHealth(eventData.ToFloat("value"));
 	}
 
 	private void AdjustHealth(float value){
@@ -58,7 +54,6 @@ public class HealthScript : MonoBehaviour
 			health = 0;
 			gameObject.SetActive(false);
 			EventManager.EmitEvent(ConstantVar.IS_DEAD, gameObject);
-			Debug.Log(gameObject+" is Dead !");
 		}
 	}
 

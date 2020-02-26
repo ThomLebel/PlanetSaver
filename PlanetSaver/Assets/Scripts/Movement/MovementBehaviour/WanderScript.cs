@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Wander")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/Wander")]
 public class WanderScript : EnemyBehaviour
 {
     // public float wanderRadius;

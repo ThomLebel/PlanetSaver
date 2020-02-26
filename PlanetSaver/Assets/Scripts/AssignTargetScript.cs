@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
+using System;
 
 public class AssignTargetScript : MonoBehaviour
 {
-	public string targetTag;
+	public string[] targetTag;
 	public bool tauntable;
 	public bool magnetizable;
 
 	private Transform target;
-	private string originalTarget;
+	[SerializeField]private string[] originalTarget;
 
 	private void Start()
 	{
-		originalTarget = targetTag;
+		originalTarget = new string[targetTag.Length];
+		targetTag.CopyTo(originalTarget, 0);
+
 		EventManager.StartListening(ConstantVar.SET_PRIORITY_TARGET, AssignPriorityTarget);
 		EventManager.StartListening(ConstantVar.RESET_PRIORITY_TARGET, ResetPriorityTarget);
 		EventManager.StartListening(ConstantVar.MIND_CONTROL, MindControl);
@@ -41,16 +44,14 @@ public class AssignTargetScript : MonoBehaviour
 		if(target != null){
 			return;
 		}
-
-		target = FindClosestTarget(targetTag, transform.position);
-
-		if(target == null){
+		
+		target = FindClosestTarget();
+		/*if(target == null){
 			return;
-		}
+		}*/
 		
 		EventManager.SetData(ConstantVar.SET_TARGET, target);
 		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
-		Debug.Log(target);
 	}
 
 	private void AssignPriorityTarget(){
@@ -119,7 +120,7 @@ public class AssignTargetScript : MonoBehaviour
 			return;
 		}
 
-		targetTag = EventManager.GetString(ConstantVar.MIND_CONTROL);
+		targetTag = new string[1]{EventManager.GetString(ConstantVar.MIND_CONTROL)};
 		ResetTarget();
 	}
 
@@ -140,6 +141,9 @@ public class AssignTargetScript : MonoBehaviour
 		}
 
 		ResetTarget();
+		
+        EventManager.SetData(ConstantVar.USE_ATTACK, false);
+        EventManager.EmitEvent(ConstantVar.USE_ATTACK, this.gameObject);
 	}
 
 	private void ResetTarget(){
@@ -147,9 +151,9 @@ public class AssignTargetScript : MonoBehaviour
 		AssignTarget();
 	}
 
-	private Transform FindClosestTarget(string targetTag, Vector3 position)
+	private Transform FindClosestTarget()
 	{
-		GameObject[] targetList = FindTargetArray(targetTag);
+		GameObject[] targetList = FindTargetArray();
 
 		Transform target = null;
 		Transform temp = null;
@@ -158,13 +162,13 @@ public class AssignTargetScript : MonoBehaviour
 		if (targetList.Length > 0)
 		{
 			target = targetList[0].transform;
-			dist = (target.position - position).sqrMagnitude;
+			dist = (target.position - transform.position).sqrMagnitude;
 
 			for (int i=0; i<targetList.Length; i++)
 			{
 				temp = targetList[i].transform;
 
-				Vector3 directionToTarget = temp.position - position;
+				Vector3 directionToTarget = temp.position - transform.position;
 				float dSqrToTarget = directionToTarget.sqrMagnitude;
 
 				if (dSqrToTarget < dist)
@@ -179,10 +183,15 @@ public class AssignTargetScript : MonoBehaviour
 		return null;
 	}
 
-	private GameObject[] FindTargetArray(string targetTag)
+	private GameObject[] FindTargetArray()
 	{
-		GameObject[] targetList = GameObject.FindGameObjectsWithTag(targetTag);
+		GameObject[] list = new GameObject[0];
+		for(int i=0; i<targetTag.Length; i++){
+			GameObject[] targetList = GameObject.FindGameObjectsWithTag(targetTag[i]);
+			Array.Resize(ref list, list.Length + targetList.Length);
+			Array.Copy(targetList, 0, list, list.Length - targetList.Length, targetList.Length);
+		}
 
-		return targetList;
+		return list;
 	}
 }

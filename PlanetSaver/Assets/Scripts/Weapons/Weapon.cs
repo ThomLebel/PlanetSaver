@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 	public List<string> targetTags = new List<string>();
 	public GameObject owner;
 
-	[SerializeField] protected bool weaponActive;
+	public bool weaponActive;
 
 	public virtual void Use(GameObject user)
 	{

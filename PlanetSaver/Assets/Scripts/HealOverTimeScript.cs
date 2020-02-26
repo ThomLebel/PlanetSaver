@@ -35,8 +35,11 @@ public class HealOverTimeScript : MonoBehaviour
         while(true){
             yield return wait;
 
-            EventManager.SetDataGroup(ConstantVar.HEAL, gameObject, healAmount);
-            EventManager.EmitEvent(ConstantVar.HEAL, "tag:Player");
+            EventManager.SetIndexedDataGroup(ConstantVar.HEAL,
+                new EventManager.DataGroup{id = "target", data = gameObject},
+                new EventManager.DataGroup{id = "value", data = healAmount}
+            );
+            EventManager.EmitEvent(ConstantVar.HEAL);
         }
     }
 }

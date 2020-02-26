@@ -42,7 +42,10 @@ public class LifeStealScript : MonoBehaviour
         float damage = attackInfo.damage;
         float healthLeeched = (damage * lifeStealPercentage) / 100f;
 
-        EventManager.SetDataGroup(ConstantVar.HEAL, gameObject, healthLeeched);
-        EventManager.EmitEvent(ConstantVar.HEAL, this.gameObject);
+        EventManager.SetIndexedDataGroup(ConstantVar.HEAL,
+            new EventManager.DataGroup{id = "target", data = gameObject},
+            new EventManager.DataGroup{id = "value", data = healthLeeched}
+        );
+        EventManager.EmitEvent(ConstantVar.HEAL);
     }
 }

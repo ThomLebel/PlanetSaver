@@ -16,7 +16,7 @@ public class WeaponManager : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(ConstantVar.USE_ATTACK, this.gameObject, UseWeapon);
+		EventManager.StartListening(ConstantVar.USE_ATTACK, UseWeapon);
         EventManager.StartListening(ConstantVar.BLOCK_MOVEMENT, BlockMovement);
 		EventManager.StartListening(ConstantVar.MIND_CONTROL, MindControl);
 		EventManager.StartListening(ConstantVar.RESET_MIND_CONTROL, ResetMindControl);

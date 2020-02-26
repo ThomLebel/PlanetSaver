@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "EnemyBehaviour/Behaviour/Cohesion")]
+[CreateAssetMenu(menuName = "IA/MovementBehaviour/Cohesion")]
 public class CohesionScript : FilteredEnemyBehaviour
 {
     Vector2 currentVelocity;

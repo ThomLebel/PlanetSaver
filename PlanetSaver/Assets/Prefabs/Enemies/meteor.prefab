@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e68c972da1d4c897e8a9e31d353d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Planet
-  findClosest: 0
+  targetTag:
+  - Planet
   tauntable: 0
   magnetizable: 0
 --- !u!114 &1559896276
@@ -201,10 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabad43979c02d4285a8f5b6437d9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetsTag:
-  - Planet
-  - Player
-  - Friendly
   initiator: {fileID: 8873740251047452227}
   collisionDamage: 10
   attributes: Collision

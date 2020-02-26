@@ -161,7 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e68c972da1d4c897e8a9e31d353d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Planet
+  targetTag:
+  - Planet
+  - Friendly
   tauntable: 1
   magnetizable: 0
 --- !u!114 &3059389334915287666
@@ -1126,7 +1128,7 @@ PrefabInstance:
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: nextShot
-      value: 0.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7106090599980976799, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
