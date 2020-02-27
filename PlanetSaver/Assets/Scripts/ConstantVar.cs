@@ -33,6 +33,8 @@
 		public const string GET_HEALTH = "GetHealth";
 		public const string SEND_HEALTH = "SendHealth";
 		public const string IS_DEAD = "IsDead";
+		public const string ON_SENSOR_ENTER = "OnSensorEnter";
+		public const string ON_SENSOR_EXIT = "OnSensorExit";
 	#endregion
 
 	#region "Attack Attributes"

@@ -163,8 +163,9 @@ MonoBehaviour:
   targetTag:
   - Player
   - Friendly
-  tauntable: 0
+  tauntable: 1
   magnetizable: 0
+  originalTarget: []
 --- !u!114 &3059389334915287666
 MonoBehaviour:
   m_ObjectHideFlags: 0

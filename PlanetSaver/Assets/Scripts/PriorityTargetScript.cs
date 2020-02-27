@@ -28,7 +28,8 @@ public class PriorityTargetScript : MonoBehaviour
     private void SendPriorityTarget(){
         EventManager.SetIndexedDataGroup(ConstantVar.SET_PRIORITY_TARGET,
             new EventManager.DataGroup{id = "type", data = type},
-            new EventManager.DataGroup{id = "target", data = gameObject}
+            new EventManager.DataGroup{id = "target", data = gameObject},
+            new EventManager.DataGroup{id = "victim", data = null}
         );
         EventManager.EmitEvent(ConstantVar.SET_PRIORITY_TARGET, gameObject);
     }

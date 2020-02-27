@@ -35,6 +35,15 @@ public class ExplodeOnCollision : EffectOnCollision
             if(target.gameObject == gameObject){
                 continue;
             }
+            bool allowed = false;
+            foreach(string tag in targetsTag){
+                if(target.CompareTag(tag)){
+                   allowed = true; 
+                }
+            }
+            if(!allowed){
+                continue;
+            }
 
             AttackInfo attackInfo = new AttackInfo(
                 initiator,

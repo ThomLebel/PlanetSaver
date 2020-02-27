@@ -13,8 +13,11 @@ public class AssignTargetScript : MonoBehaviour
 	private Transform target;
 	[SerializeField]private string[] originalTarget;
 
+	private Transform currentTarget;
+
 	private void Start()
 	{
+		target = currentTarget = null;
 		originalTarget = new string[targetTag.Length];
 		targetTag.CopyTo(originalTarget, 0);
 
@@ -25,6 +28,9 @@ public class AssignTargetScript : MonoBehaviour
 		EventManager.StartListening(ConstantVar.IS_DEAD, TargetIsDead);
 
 		EventManager.EmitEvent(ConstantVar.FIND_PRIORITY_TARGET, gameObject);
+
+		EventManager.SetData(ConstantVar.SET_TARGET, target);
+		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
 
 		AssignTarget();		
 	}
@@ -46,12 +52,13 @@ public class AssignTargetScript : MonoBehaviour
 		}
 		
 		target = FindClosestTarget();
-		/*if(target == null){
-			return;
-		}*/
 		
-		EventManager.SetData(ConstantVar.SET_TARGET, target);
-		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
+		if(target != currentTarget){
+			currentTarget = target;
+		
+			EventManager.SetData(ConstantVar.SET_TARGET, target);
+			EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
+		}
 	}
 
 	private void AssignPriorityTarget(){
@@ -62,8 +69,13 @@ public class AssignTargetScript : MonoBehaviour
 
 		var eventData = EventManager.GetIndexedDataGroup(ConstantVar.SET_PRIORITY_TARGET);
 
+		GameObject victim = eventData.ToGameObject("victim");
+		if(victim != null && victim != gameObject){
+			return;
+		}
+
 		string type = eventData.ToString("type");
-		Transform eventTarget = eventData.ToGameObject("target").transform; 
+		Transform eventTarget = eventData.ToGameObject("target").transform;
 		switch(type){
 			case ConstantVar.BUFF_TAUNT:
 				if(tauntable){
