@@ -9,6 +9,7 @@ public class Tank : MonoBehaviour
     public List<string> targetTag;
 
     [SerializeField]private GameObject sensor;
+    [SerializeField]private List<GameObject> tauntedTargets;
 
     private void OnValidate() {
         sensorScript = GetComponentInChildren<SensorScript>();
@@ -20,8 +21,10 @@ public class Tank : MonoBehaviour
     }
 
     private void Start() {
+        tauntedTargets = new List<GameObject>();
         sensorScript.targetsTag = targetTag;
         EventManager.StartListening(ConstantVar.ON_SENSOR_ENTER, OnSensorEnter);
+        EventManager.StartListening(ConstantVar.IS_DEAD, ResetPriorityTarget);
     }
 
     private void OnSensorEnter(){
@@ -31,6 +34,7 @@ public class Tank : MonoBehaviour
         }
 
         GameObject target = EventManager.GetGameObject(ConstantVar.ON_SENSOR_ENTER);
+        tauntedTargets.Add(target);
         
         SendPriorityTarget(target);
     }
@@ -42,5 +46,20 @@ public class Tank : MonoBehaviour
             new EventManager.DataGroup{id = "victim", data = victim}
         );
         EventManager.EmitEvent(ConstantVar.SET_PRIORITY_TARGET, gameObject);
+    }
+
+    private void ResetPriorityTarget(){
+        GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.IS_DEAD);
+        if(sender == null || sender != gameObject){
+            return;
+        }
+
+        foreach(GameObject victim in tauntedTargets){
+            EventManager.SetIndexedDataGroup(ConstantVar.RESET_PRIORITY_TARGET,
+                new EventManager.DataGroup{id = "type", data = ConstantVar.BUFF_TAUNT},
+                new EventManager.DataGroup{id = "victim", data = victim}
+            );
+            EventManager.EmitEvent(ConstantVar.RESET_PRIORITY_TARGET, gameObject);
+        }
     }
 }

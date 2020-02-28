@@ -7,6 +7,11 @@ public abstract class DefensiveModifierScript : MonoBehaviour
 {
     public List<string> defensiveModifier;
     // Start is called before the first frame update
+
+    protected virtual void Awake(){
+        defensiveModifier = new List<string>();
+    }
+
     void Start()
     {
         EventManager.SetData(ConstantVar.REGISTER_DEFENSIVE_MODIFIER, this);

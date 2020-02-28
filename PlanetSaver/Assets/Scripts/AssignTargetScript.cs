@@ -13,7 +13,7 @@ public class AssignTargetScript : MonoBehaviour
 	private Transform target;
 	[SerializeField]private string[] originalTarget;
 
-	private Transform currentTarget;
+	[SerializeField]private Transform currentTarget;
 
 	private void Start()
 	{
@@ -96,6 +96,8 @@ public class AssignTargetScript : MonoBehaviour
 			return;
 		}
 
+		currentTarget = target;
+
 		EventManager.SetData(ConstantVar.SET_TARGET, target);
 		EventManager.EmitEvent(ConstantVar.SET_TARGET, this.gameObject);
 	}
@@ -106,7 +108,14 @@ public class AssignTargetScript : MonoBehaviour
 			return;
 		}
 
-		string eventType = EventManager.GetString(ConstantVar.RESET_PRIORITY_TARGET);
+		var eventData = EventManager.GetIndexedDataGroup(ConstantVar.RESET_PRIORITY_TARGET);
+
+		GameObject victim = eventData.ToGameObject("victim");
+		if(victim != null && victim != gameObject){
+			return;
+		}
+
+		string eventType = eventData.ToString("type");
 		switch(eventType){
 			case ConstantVar.BUFF_TAUNT:
 				if(!tauntable){
@@ -122,8 +131,7 @@ public class AssignTargetScript : MonoBehaviour
 				return;
 		}
 
-		target = null;
-		AssignTarget();
+		ResetTarget();
 	}
 
 	private void MindControl(){
@@ -153,12 +161,12 @@ public class AssignTargetScript : MonoBehaviour
 		}
 
 		ResetTarget();
-		
-        EventManager.SetData(ConstantVar.USE_ATTACK, false);
-        EventManager.EmitEvent(ConstantVar.USE_ATTACK, this.gameObject);
 	}
 
 	private void ResetTarget(){
+		EventManager.SetData(ConstantVar.USE_ATTACK, false);
+        EventManager.EmitEvent(ConstantVar.USE_ATTACK, this.gameObject);
+
 		target = null;
 		AssignTarget();
 	}

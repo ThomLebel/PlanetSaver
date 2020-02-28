@@ -35,7 +35,10 @@ public class PriorityTargetScript : MonoBehaviour
     }
 
     private void ResetPriorityTarget(){
-        EventManager.SetData(ConstantVar.RESET_PRIORITY_TARGET, type);
+        EventManager.SetIndexedDataGroup(ConstantVar.RESET_PRIORITY_TARGET,
+                new EventManager.DataGroup{id = "type", data = type},
+                new EventManager.DataGroup{id = "victim", data = null}
+            );
         EventManager.EmitEvent(ConstantVar.RESET_PRIORITY_TARGET, gameObject);
 
         Destroy(this);

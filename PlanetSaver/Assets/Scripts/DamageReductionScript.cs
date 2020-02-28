@@ -9,7 +9,8 @@ public class DamageReductionScript : DefensiveModifierScript
     public float damageReduction = 50f;
     public float reductionDuration;
 
-    void Awake() {
+    protected override void Awake() {
+        base.Awake();
         defensiveModifier.Add(ConstantVar.ATK_ATR_POISON);    
     }
 
