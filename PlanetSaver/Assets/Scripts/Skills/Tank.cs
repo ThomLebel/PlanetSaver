@@ -3,31 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TigerForge;
 
-public class Tank : MonoBehaviour
+public class Tank : SensorBased
 {
-    public SensorScript sensorScript;
-    public List<string> targetTag;
-
-    [SerializeField]private GameObject sensor;
     [SerializeField]private List<GameObject> tauntedTargets;
 
-    private void OnValidate() {
-        sensorScript = GetComponentInChildren<SensorScript>();
-        if(sensorScript != null){
-            sensor = sensorScript.gameObject;
-        }else{
-            Debug.LogError("We need a sensor child attached to "+gameObject);
-        }
-    }
-
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         tauntedTargets = new List<GameObject>();
-        sensorScript.targetsTag = targetTag;
-        EventManager.StartListening(ConstantVar.ON_SENSOR_ENTER, OnSensorEnter);
         EventManager.StartListening(ConstantVar.IS_DEAD, ResetPriorityTarget);
     }
 
-    private void OnSensorEnter(){
+    protected override void OnSensorEnter(){
         GameObject sender = (GameObject) EventManager.GetSender(ConstantVar.ON_SENSOR_ENTER);
         if(sender == null || sender != sensor){
             return;
@@ -61,5 +47,10 @@ public class Tank : MonoBehaviour
             );
             EventManager.EmitEvent(ConstantVar.RESET_PRIORITY_TARGET, gameObject);
         }
+    }
+
+    protected override void OnSensorExit()
+    {
+        throw new System.NotImplementedException();
     }
 }

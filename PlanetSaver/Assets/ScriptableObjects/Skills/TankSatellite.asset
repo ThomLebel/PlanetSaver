@@ -18,6 +18,6 @@ MonoBehaviour:
   owner: {fileID: 0}
   invocation: {fileID: 5346850815470296654, guid: f03c3dd46f6abfb43b8c1bf65e7b5ea1,
     type: 3}
-  lifetime: 30
-  maxInvocation: 4
+  lifetime: 40
+  maxInvocation: 2
   currentInvocation: 0

@@ -23,6 +23,7 @@
 		public const string BLOCK_MOVEMENT = "BlockMovement";
 		public const string MIND_CONTROL = "MindControl";
 		public const string RESET_MIND_CONTROL = "ResetMindControl";
+		public const string ADJUST_SPEED = "AdjustSpeed";
 
 		//CommonEvent
 		public const string GET_OWNER = "GetOwner";

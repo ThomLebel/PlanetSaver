@@ -18,6 +18,7 @@ public class FollowAndOrbitScript : EnemyBehaviour
     {
         Vector2 move = Vector2.zero;
         if(target == null){
+            orbiting = false;
             return move;
         }
 

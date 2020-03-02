@@ -63,15 +63,15 @@ public abstract class ShootProjectile : Weapon
 
         switch(type){
             case ConstantVar.BUFF_DAMAGE:
-                if(value > 0){
+                if(value != 0){
                     damage += Mathf.Floor((damage * value) / 100);
                 }else{
                     damage = initialDamage;
                 }
             break;
             case ConstantVar.BUFF_FIRERATE:
-                if(value > 0){
-                    fireRate += Mathf.Floor((fireRate * value) / 100);
+                if(value != 0){
+                    fireRate -= Mathf.Floor((fireRate * value) / 100);
                 }else{
                     fireRate = initialFireRate;
                 }

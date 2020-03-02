@@ -11,7 +11,7 @@ public class InvocationSkill : Skill
     public float lifetime;
     public int maxInvocation;
     [SerializeField]private int currentInvocation;
-    private List<Invocation> invocationList;
+    [SerializeField]private List<Invocation> invocationList;
 
     public override void Initialize(GameObject _owner){
         base.Initialize(_owner);
@@ -31,6 +31,7 @@ public class InvocationSkill : Skill
                     DeleteInvocation(invoc);
                 }
                 invoc.lifetime -= Time.deltaTime;
+                Debug.Log(invoc.invocation+" lifetime = "+invoc.lifetime);
             }
         }
     }

@@ -38,6 +38,7 @@ public class MovementBehaviour : MonoBehaviour
         EventManager.StartListening(ConstantVar.BLOCK_MOVEMENT, BlockMovement);
 		EventManager.StartListening(ConstantVar.MIND_CONTROL, MindControl);
 		EventManager.StartListening(ConstantVar.RESET_MIND_CONTROL, ResetMindControl);
+        EventManager.StartListening(ConstantVar.ADJUST_SPEED, AdjustSpeed);
 	}
 
     // Start is called before the first frame update
@@ -85,7 +86,10 @@ public class MovementBehaviour : MonoBehaviour
             EnemyBehaviour behaviour = behaviours[i].behaviour;
             float weight = behaviours[i].weight;
 
-            Vector2 partialMove = behaviour.CalculateMove(transform, context, target, this) * weight;
+            Vector2 partialMove = Vector2.zero;
+            if(weight > 0){
+                partialMove = behaviour.CalculateMove(transform, context, target, this) * weight;
+            }
             
             if(partialMove != Vector2.zero){
                 if(partialMove.sqrMagnitude > weight * weight){
@@ -148,6 +152,22 @@ public class MovementBehaviour : MonoBehaviour
 
 		target = null;
 	}
+
+    private void AdjustSpeed(){
+        var eventData = EventManager.GetIndexedDataGroup(ConstantVar.ADJUST_SPEED);
+
+        GameObject target = eventData.ToGameObject("target");
+        if(target == null || target != gameObject){
+            return;
+        }
+
+        float value = eventData.ToFloat("value");
+        if(value != 0){
+            moveSpeed += Mathf.Floor((moveSpeed * value) / 100);
+        }else{
+            moveSpeed = speed;
+        }
+    }
 
     [Serializable]
     public struct Behaviour{

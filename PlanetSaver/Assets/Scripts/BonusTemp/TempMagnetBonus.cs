@@ -13,12 +13,11 @@ public class TempMagnetBonus : TemporaryBonusScript
             return;
         }
 
-        PriorityTargetScript priorityTargetScript = player.GetComponent<PriorityTargetScript>();
+        Magnet priorityTargetScript = player.GetComponent<Magnet>();
         if(priorityTargetScript == null){
-            priorityTargetScript = player.AddComponent<PriorityTargetScript>();
+            priorityTargetScript = player.AddComponent<Magnet>();
         }
 
-        priorityTargetScript.type = ConstantVar.BUFF_MAGNET;
         priorityTargetScript.effectDuration = magnetDuration;
     }
 }
