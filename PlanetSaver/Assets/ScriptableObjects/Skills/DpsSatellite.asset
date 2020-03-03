@@ -15,9 +15,8 @@ MonoBehaviour:
   skillName: DPS Satellite
   cooldown: 8
   timer: 0
-  owner: {fileID: 0}
-  invocation: {fileID: 8648737610420188358, guid: b6b674317c128a34d92fb8d18c4c18a3,
+  invocationPrefab: {fileID: 8648737610420188358, guid: b6b674317c128a34d92fb8d18c4c18a3,
     type: 3}
-  lifetime: 30
+  lifetime: 10
   maxInvocation: 3
   currentInvocation: 0

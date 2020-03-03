@@ -15,9 +15,8 @@ MonoBehaviour:
   skillName: Debuff Satellite
   cooldown: 8
   timer: 0
-  owner: {fileID: 0}
-  invocation: {fileID: 3374627476874200591, guid: 6ebca9f014b884648aff7e89090509b0,
+  invocationPrefab: {fileID: 3374627476874200591, guid: 6ebca9f014b884648aff7e89090509b0,
     type: 3}
-  lifetime: 40
+  lifetime: 12
   maxInvocation: 3
   currentInvocation: 0

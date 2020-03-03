@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1684388571}
   - component: {fileID: 1684388570}
   - component: {fileID: 5717108262539622682}
+  - component: {fileID: -5188104519482319687}
   m_Layer: 9
   m_Name: HealSatellite
   m_TagString: Friendly
@@ -182,6 +183,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5188104519482319687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865944601247472842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1196439974674840a359b3c3ca2938f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invocationType: {fileID: 0}
+  owner: {fileID: 0}
 --- !u!1 &8339725894503839400
 GameObject:
   m_ObjectHideFlags: 0

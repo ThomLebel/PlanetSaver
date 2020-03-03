@@ -15,9 +15,8 @@ MonoBehaviour:
   skillName: Tank Satellite
   cooldown: 8
   timer: 0
-  owner: {fileID: 0}
-  invocation: {fileID: 5346850815470296654, guid: f03c3dd46f6abfb43b8c1bf65e7b5ea1,
+  invocationPrefab: {fileID: 5346850815470296654, guid: f03c3dd46f6abfb43b8c1bf65e7b5ea1,
     type: 3}
-  lifetime: 40
+  lifetime: 12
   maxInvocation: 2
   currentInvocation: 0

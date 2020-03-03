@@ -13,6 +13,18 @@ public class InputManager : MonoBehaviour
 		if(Input.GetButtonUp("Jump")){
 			ActivatePrimaryAttack(false);
 		}
+		if(Input.GetButtonUp("skill1")){
+			ActivateSkill(0);
+		}
+		if(Input.GetButtonUp("skill2")){
+			ActivateSkill(1);
+		}
+		if(Input.GetButtonUp("skill3")){
+			ActivateSkill(2);
+		}
+		if(Input.GetButtonUp("skill4")){
+			ActivateSkill(3);
+		}
 	}
 
 	public void ActivatePrimaryAttack(bool value)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TigerForge;
 
 public class LifeSpanScript : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class LifeSpanScript : MonoBehaviour
 		if (lifetime <= 0f)
 		{
 			Destroy(gameObject);
+			EventManager.EmitEvent(ConstantVar.IS_DEAD, gameObject);
 		}
     }
 }

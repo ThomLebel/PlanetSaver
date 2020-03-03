@@ -14,7 +14,7 @@ public class SkillManager : MonoBehaviour
 
 	private void Start() {
 		foreach(Skill skill in skillList){
-			skill.Initialize(gameObject);
+			skill.Initialize();
 		}
 	}
 

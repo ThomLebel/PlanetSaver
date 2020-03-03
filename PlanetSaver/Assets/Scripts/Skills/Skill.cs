@@ -7,11 +7,9 @@ public abstract class Skill : ScriptableObject
     public string skillName;
     public float cooldown;
     public float timer;
-    public GameObject owner;
 
-    public virtual void Initialize(GameObject _owner){
+    public virtual void Initialize(){
         timer = 0f;
-        owner = _owner;
     }
 
     public void ActivateSkill(GameObject user){
