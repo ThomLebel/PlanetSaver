@@ -16,7 +16,7 @@ public class RocketLauncher : ShootProjectile
         );
         EventManager.EmitEvent(ConstantVar.CREATE_BULLET, this.gameObject);
 
-        shot.tag = gameObject.tag;
+        shot.tag = owner.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
         collisionScript.targetsTag = targetTags;
 

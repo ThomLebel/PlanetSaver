@@ -11,7 +11,7 @@ public class LootScript : MonoBehaviour
     public int lootChance = 25;
     public int maxObjectLooted = 3;
     [Range(1f,1000f)]
-    public float forceModifier = 25;
+    public float forceModifier = 25f;
     public Loot[] loots;
 
     int totalDropRate;

@@ -12,7 +12,7 @@ public class LazerShooter : ShootProjectile
         EventManager.SetDataGroup(ConstantVar.CREATE_BULLET, user, shot);
         EventManager.EmitEvent(ConstantVar.CREATE_BULLET, this.gameObject);
 
-        shot.tag = gameObject.tag;
+        shot.tag = owner.tag;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
         collisionScript.targetsTag = targetTags;
 
