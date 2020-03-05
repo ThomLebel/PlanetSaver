@@ -8,18 +8,19 @@ public class EnemySpawnerScript : MonoBehaviour
 {
 	public List<GameObject> enemies;
 	public float spawnRate;
+	public float expandTimer = 60f;
 	public float offset;
-
 	public float angleInterval = 45f;
 	[SerializeField] private SpawnArea spawnArea;
 
 	[SerializeField] private float circleRadius;
-	private float nextSpawn = 0f;
 	private Camera cam;
 	private Transform cameraRig;
 	private bool stopSpawning;
 	[SerializeField] private List<SpawnArea> spawnAreas;
 	[SerializeField] private int activeSpawnAreas = 1;
+	private WaitForSeconds wait;
+	private IEnumerator expandSpawnArea;
 
 	private void Awake()
 	{
@@ -37,11 +38,16 @@ public class EnemySpawnerScript : MonoBehaviour
 		}
 
 		spawnAreas = Helpers.Shuffle<SpawnArea>(spawnAreas);
+
+		wait = new WaitForSeconds(expandTimer);
+		expandSpawnArea = ExpandSpawnArea();
+		StartCoroutine(expandSpawnArea);
 	}
 
 	private void Start()
 	{
 		EventManager.StartListening(ConstantVar.STOP_SPAWNING, StopSpawning);
+		EventManager.StartListening(ConstantVar.IS_DEAD, EnemyDead);
 	}
 
 	private void OnDisable()
@@ -55,25 +61,24 @@ public class EnemySpawnerScript : MonoBehaviour
 		if (stopSpawning)
 			return;
 
-        if (nextSpawn <= 0f)
-        {
-            SpawnEnemy();
-            nextSpawn = spawnRate;
-        }
-        else
-        {
-            nextSpawn -= Time.deltaTime;
-        }
+		for(int i=0; i<activeSpawnAreas; i++){
+			SpawnArea spawn = spawnAreas[i];
+			if(spawnArea.nextSpawn <= 0f){
+				SpawnEnemy(spawn);
+				spawnArea.nextSpawn = spawnRate;
+			}else{
+				spawnArea.nextSpawn -= Time.deltaTime;
+			}
+		}
     }
 
-	private void SpawnEnemy()
+	private void SpawnEnemy(SpawnArea spawn)
 	{
-		for(int i=0; i<activeSpawnAreas; i++){
-			int enemyIndex = UnityEngine.Random.Range(0, enemies.Count);
-			Vector3 enemyPos = GetRandomPointOnSpawnCircle(i);
-			GameObject enemy = Instantiate(enemies[enemyIndex], enemyPos, Quaternion.identity);
-			EventManager.EmitEvent(ConstantVar.ENEMY_SPAWNED);
-		}
+		int enemyIndex = UnityEngine.Random.Range(0, enemies.Count);
+		Vector3 enemyPos = GetRandomPointOnSpawnCircle(spawn);
+		GameObject enemy = Instantiate(enemies[enemyIndex], enemyPos, Quaternion.identity);
+		spawn.enemies.Add(enemy);
+		EventManager.EmitEvent(ConstantVar.ENEMY_SPAWNED);
 	}
 
 	private void StopSpawning()
@@ -85,11 +90,27 @@ public class EnemySpawnerScript : MonoBehaviour
 		activeSpawnAreas ++;
 	}
 
-	private Vector3 GetRandomPointOnSpawnCircle(int index)
+	private void EnemyDead(){
+		GameObject sender = (GameObject)EventManager.GetSender(ConstantVar.IS_DEAD);
+		if(sender == null){
+			return;
+		}
+		
+		for(int i=0; i<activeSpawnAreas; i++){
+			SpawnArea spawn = spawnAreas[i];
+			if(spawn.enemies.Contains(sender)){
+				spawn.enemies.Remove(sender);
+				SpawnEnemy(spawn);
+				return;
+			}
+		}
+	}
+
+	private Vector3 GetRandomPointOnSpawnCircle(SpawnArea spawn)
 	{
         circleRadius = (cam.orthographicSize * cam.aspect) + Mathf.Abs(cameraRig.position.x) + offset;
 		
-		float degree = UnityEngine.Random.Range(spawnAreas[index].minAngle, spawnAreas[index].maxAngle);
+		float degree = UnityEngine.Random.Range(spawn.minAngle, spawn.maxAngle);
 		float radian = degree * Mathf.Deg2Rad;
 		float x = Mathf.Cos(radian);
 		float y = Mathf.Sin(radian);
@@ -99,14 +120,27 @@ public class EnemySpawnerScript : MonoBehaviour
         return pos;
 	}
 
+	private IEnumerator ExpandSpawnArea(){
+		while(activeSpawnAreas < spawnAreas.Count){
+			yield return wait;
+
+			AddSpawnArea();
+		}
+		StopCoroutine(expandSpawnArea);
+	}
+
 	[Serializable]
 	public struct SpawnArea{
 		public float minAngle;
 		public float maxAngle;
+		public float nextSpawn;
+		public List<GameObject> enemies;
 
 		public SpawnArea(float _minAngle, float _maxAngle){
 			minAngle = _minAngle;
 			maxAngle = _maxAngle;
+			nextSpawn = 0;
+			enemies = new List<GameObject>();
 		}
 	}
 }

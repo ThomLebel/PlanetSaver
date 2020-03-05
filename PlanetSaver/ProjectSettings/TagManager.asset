@@ -11,6 +11,8 @@ TagManager:
   - Collectible
   - Obstacle
   - Friendly
+  - EnemyBullet
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

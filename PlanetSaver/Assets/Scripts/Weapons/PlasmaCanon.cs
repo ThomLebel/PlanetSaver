@@ -13,7 +13,13 @@ public class PlasmaCanon : ShootProjectile
         EventManager.SetDataGroup(ConstantVar.CREATE_BULLET, user, shot);
         EventManager.EmitEvent(ConstantVar.CREATE_BULLET, this.gameObject);
         
-        shot.tag = owner.tag;
+        // shot.tag = owner.tag;
+        if(owner.CompareTag("Player") || owner.CompareTag("Friendly")){
+            shot.tag = "PlayerBullet";
+        }else{
+            shot.tag = "EnemyBullet";
+        }
+        shot.layer = gameObject.layer;
         CollisionScript collisionScript = shot.AddComponent<CollisionScript>();
         collisionScript.targetsTag = targetTags;
         

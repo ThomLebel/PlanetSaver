@@ -36,6 +36,7 @@ public class DamageOverTimeApplicator : MonoBehaviour
         dotScript.dotDuration = dotDuration;        
         dotScript.dotDamage = dotDamage;
         dotScript.initiator = initiator;    
-        dotScript.sender = gameObject;    
+        dotScript.sender = initiator;
+        dotScript.attribute = attribute; 
     }
 }

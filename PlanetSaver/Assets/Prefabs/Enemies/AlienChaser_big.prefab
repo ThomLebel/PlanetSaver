@@ -285,8 +285,6 @@ MonoBehaviour:
   steeringBehaviours:
   - behaviour: {fileID: 11400000, guid: 9f7d9330aaf1078489ef075b19e47d96, type: 2}
     weight: 4
-  - behaviour: {fileID: 11400000, guid: b06a1720d1d02ad4f82250d13aef1408, type: 2}
-    weight: 1
   speed: 1
   driveFactor: 10
   neighboorRadius: 2

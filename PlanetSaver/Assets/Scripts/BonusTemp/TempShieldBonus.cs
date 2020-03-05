@@ -7,6 +7,7 @@ public class TempShieldBonus : TemporaryBonusScript
 {
     public GameObject shieldPrefab;
     public float shieldLifeTime;
+    public List<string> blockTarget;
 
     public override void Effect(GameObject player){
         if(player == null){
@@ -16,6 +17,7 @@ public class TempShieldBonus : TemporaryBonusScript
         Transform shieldTransform = player.transform.Find("shield");
         GameObject shield = null;
         LifeSpanScript lifeSpan = null;
+        ShieldScript shieldScript = null;
         if(shieldTransform == null){
             shield = Instantiate(shieldPrefab, player.transform.position, player.transform.rotation, player.transform);
             lifeSpan = shield.AddComponent<LifeSpanScript>();
@@ -23,6 +25,9 @@ public class TempShieldBonus : TemporaryBonusScript
             shield = shieldTransform.gameObject;
             lifeSpan = shield.GetComponent<LifeSpanScript>();
         }
+
+        shieldScript = shield.GetComponent<ShieldScript>();
+        shieldScript.blockTarget = blockTarget;
 
         lifeSpan.lifetime += shieldLifeTime;
     }

@@ -16,4 +16,4 @@ MonoBehaviour:
   dotBuffDuration: 10
   dotDuration: 5
   dotDamage: 2
-  attribute: Poison
+  attribute: Poison,
