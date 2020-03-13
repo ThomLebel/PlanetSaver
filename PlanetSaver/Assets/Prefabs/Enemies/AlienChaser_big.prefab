@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bba25cd7e04c345a476ec36fe2c8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 50
 --- !u!114 &3059389334915287667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ PrefabInstance:
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1198,7 +1198,7 @@ PrefabInstance:
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}

@@ -1080,7 +1080,7 @@ PrefabInstance:
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
@@ -1198,7 +1198,7 @@ PrefabInstance:
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
       propertyPath: fireRate
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6899080641441492395, guid: bc3ce542b85bbbe4498a1690cc60ee35,
         type: 3}
